@@ -1,0 +1,93 @@
+{
+  "vocabulary": {
+    "provider": "Zoho Creator",
+    "version": "2.1",
+    "terms": [
+      {
+        "term": "account_owner_name",
+        "definition": "The username of the Zoho Creator account owner (workspace owner) under which the application is hosted.",
+        "context": "Path parameter required in nearly every API endpoint."
+      },
+      {
+        "term": "app_link_name",
+        "definition": "The unique URL-friendly identifier (link name) for a Zoho Creator application within an account.",
+        "context": "Path parameter used alongside account_owner_name to scope requests to a specific application."
+      },
+      {
+        "term": "form_link_name",
+        "definition": "The URL-friendly identifier for a specific form within a Zoho Creator application.",
+        "context": "Used in Data API and Bulk Insert API paths to target a particular form."
+      },
+      {
+        "term": "report_link_name",
+        "definition": "The URL-friendly identifier for a specific report (view) within a Zoho Creator application.",
+        "context": "Used in Data API, Publish API, and Bulk Read API paths."
+      },
+      {
+        "term": "record_ID",
+        "definition": "Unique numeric string identifier assigned to each record in a Zoho Creator form or report.",
+        "context": "Used to target individual records for GET, PATCH, and DELETE operations."
+      },
+      {
+        "term": "field_link_name",
+        "definition": "The URL-friendly identifier for a specific field within a form, used in file upload/download endpoints.",
+        "context": "Required parameter for File API endpoints."
+      },
+      {
+        "term": "job_ID",
+        "definition": "Unique identifier for a Bulk Read or Bulk Insert asynchronous job.",
+        "context": "Returned when creating a bulk job; used to poll status and retrieve results."
+      },
+      {
+        "term": "Data API",
+        "definition": "API category providing CRUD operations (create, read, update, delete) on application records.",
+        "context": "Covers /creator/v2/data/** endpoints."
+      },
+      {
+        "term": "Publish API",
+        "definition": "API category for accessing publicly accessible report views and form submissions without requiring full OAuth.",
+        "context": "Covers /creator/v2/publish/** endpoints."
+      },
+      {
+        "term": "File API",
+        "definition": "API category for uploading and downloading file/image field attachments in records.",
+        "context": "Covers upload and download endpoints under /creator/v2/data/**."
+      },
+      {
+        "term": "Meta API",
+        "definition": "API category for retrieving metadata about applications, forms, reports, fields, pages, and sections.",
+        "context": "Covers /creator/v2/meta/** endpoints."
+      },
+      {
+        "term": "Bulk Read API",
+        "definition": "API category enabling asynchronous export of large datasets from reports as downloadable files.",
+        "context": "Covers /creator/v2/bulk/**/report/**/read endpoints."
+      },
+      {
+        "term": "Bulk Insert API",
+        "definition": "API category enabling asynchronous batch insertion of records into a form.",
+        "context": "Covers /creator/v2/bulk/**/form/**/insert endpoints."
+      },
+      {
+        "term": "OAuth 2.0",
+        "definition": "Authentication protocol used by Zoho Creator API; requires client credentials and scopes prefixed with ZohoCreator.",
+        "context": "All non-publish endpoints require a Bearer token in the Authorization header."
+      },
+      {
+        "term": "scope",
+        "definition": "OAuth permission string controlling access level, e.g. ZohoCreator.data.application.READ or ZohoCreator.meta.form.READ.",
+        "context": "Scopes are granular per resource type and access level (READ, WRITE, DELETE, ALL)."
+      },
+      {
+        "term": "link_name",
+        "definition": "A URL-safe, snake_case display identifier Zoho Creator assigns to forms, reports, and fields.",
+        "context": "Used throughout path parameters; can be found in application metadata responses."
+      },
+      {
+        "term": "criteria",
+        "definition": "A filter expression string applied to report queries to narrow returned records, e.g. (Department==\"Engineering\").",
+        "context": "Query parameter for Data API list endpoints."
+      }
+    ]
+  }
+}

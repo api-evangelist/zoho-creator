@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/zoho-creator/main/json-schema/zoho-creator-api-response.json",
+  "title": "Zoho Creator API Response",
+  "description": "Standard response envelope returned by Zoho Creator REST API v2 endpoints.",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "integer",
+      "description": "Numeric response code. 3000 indicates success."
+    },
+    "message": {
+      "type": "string",
+      "description": "Human-readable status message."
+    },
+    "data": {
+      "description": "Payload data for the response — can be a record object, array of records, or metadata object.",
+      "oneOf": [
+        { "type": "object" },
+        { "type": "array", "items": { "type": "object" } }
+      ]
+    }
+  },
+  "required": ["code", "message"],
+  "additionalProperties": false
+}

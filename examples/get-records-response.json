@@ -1,0 +1,24 @@
+{
+  "code": 3000,
+  "message": "Records fetched successfully",
+  "data": [
+    {
+      "ID": "3894000000012001",
+      "Name": "John Doe",
+      "Email": "john.doe@example.com",
+      "Department": "Engineering",
+      "Start_Date": "2024-01-15",
+      "Added_Time": "2024-01-15T09:30:00+05:30",
+      "Modified_Time": "2024-03-10T14:22:00+05:30"
+    },
+    {
+      "ID": "3894000000012002",
+      "Name": "Jane Smith",
+      "Email": "jane.smith@example.com",
+      "Department": "Marketing",
+      "Start_Date": "2024-02-01",
+      "Added_Time": "2024-02-01T11:00:00+05:30",
+      "Modified_Time": "2024-04-05T09:15:00+05:30"
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "creator": "https://www.zoho.com/creator/help/api/v2.1/#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "ZohoCreatorApplication": {
+      "@id": "creator:Application",
+      "@type": "@id"
+    },
+    "ZohoCreatorForm": {
+      "@id": "creator:Form",
+      "@type": "@id"
+    },
+    "ZohoCreatorReport": {
+      "@id": "creator:Report",
+      "@type": "@id"
+    },
+    "ZohoCreatorRecord": {
+      "@id": "creator:Record",
+      "@type": "@id"
+    },
+    "ZohoCreatorField": {
+      "@id": "creator:Field",
+      "@type": "@id"
+    },
+    "ZohoCreatorBulkJob": {
+      "@id": "creator:BulkJob",
+      "@type": "@id"
+    },
+
+    "account_owner_name": {
+      "@id": "creator:accountOwnerName",
+      "@type": "xsd:string"
+    },
+    "app_link_name": {
+      "@id": "creator:appLinkName",
+      "@type": "xsd:string"
+    },
+    "form_link_name": {
+      "@id": "creator:formLinkName",
+      "@type": "xsd:string"
+    },
+    "report_link_name": {
+      "@id": "creator:reportLinkName",
+      "@type": "xsd:string"
+    },
+    "record_ID": {
+      "@id": "schema:identifier",
+      "@type": "xsd:string"
+    },
+    "job_id": {
+      "@id": "creator:jobId",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "schema:actionStatus",
+      "@type": "xsd:string"
+    },
+    "Added_Time": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "Modified_Time": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "Added_User": {
+      "@id": "schema:author",
+      "@type": "@id"
+    },
+    "Modified_User": {
+      "@id": "schema:editor",
+      "@type": "@id"
+    },
+    "display_value": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "link_name": {
+      "@id": "schema:identifier",
+      "@type": "xsd:string"
+    },
+    "display_name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "is_mandatory": {
+      "@id": "schema:valueRequired",
+      "@type": "xsd:boolean"
+    },
+    "code": {
+      "@id": "creator:responseCode",
+      "@type": "xsd:integer"
+    },
+    "message": {
+      "@id": "schema:description",
+      "@type": "xsd:string"
+    },
+    "data": {
+      "@id": "schema:result"
+    },
+    "criteria": {
+      "@id": "creator:filterCriteria",
+      "@type": "xsd:string"
+    }
+  }
+}

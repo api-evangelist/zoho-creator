@@ -1,0 +1,9 @@
+{
+  "data": {
+    "Name": "Alice Johnson",
+    "Email": "alice.johnson@example.com",
+    "Department": "Sales",
+    "Start_Date": "2024-06-01",
+    "Phone": "+1-555-0100"
+  }
+}

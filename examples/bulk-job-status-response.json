@@ -1,0 +1,15 @@
+{
+  "code": 3000,
+  "message": "Data fetched successfully",
+  "data": {
+    "job_id": "3894000000022001",
+    "status": "COMPLETED",
+    "operation": "INSERT",
+    "created_time": "2024-06-12T10:00:00+05:30",
+    "result": {
+      "total_records": 2,
+      "success_count": 2,
+      "failure_count": 0
+    }
+  }
+}

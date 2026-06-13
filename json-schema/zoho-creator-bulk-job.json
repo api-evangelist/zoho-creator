@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/zoho-creator/main/json-schema/zoho-creator-bulk-job.json",
+  "title": "Zoho Creator Bulk Job",
+  "description": "Represents a bulk read or bulk insert job in Zoho Creator.",
+  "type": "object",
+  "properties": {
+    "job_id": {
+      "type": "string",
+      "description": "Unique identifier for the bulk job."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["IN_PROGRESS", "COMPLETED", "FAILED"],
+      "description": "Current status of the bulk job."
+    },
+    "operation": {
+      "type": "string",
+      "enum": ["INSERT", "READ"],
+      "description": "Type of bulk operation."
+    },
+    "created_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the bulk job was created."
+    },
+    "result": {
+      "type": "object",
+      "description": "Result metadata for a completed bulk job.",
+      "properties": {
+        "total_records": { "type": "integer" },
+        "success_count": { "type": "integer" },
+        "failure_count": { "type": "integer" },
+        "download_url": { "type": "string", "format": "uri" }
+      }
+    }
+  },
+  "required": ["job_id", "status"],
+  "additionalProperties": true
+}

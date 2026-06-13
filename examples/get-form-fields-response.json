@@ -1,0 +1,33 @@
+{
+  "code": 3000,
+  "message": "Fields fetched successfully",
+  "data": [
+    {
+      "link_name": "Name",
+      "display_name": "Name",
+      "type": "Name",
+      "is_mandatory": true,
+      "max_length": 255
+    },
+    {
+      "link_name": "Email",
+      "display_name": "Email",
+      "type": "Email",
+      "is_mandatory": false,
+      "max_length": 100
+    },
+    {
+      "link_name": "Department",
+      "display_name": "Department",
+      "type": "Dropdown",
+      "is_mandatory": false,
+      "choices": ["Engineering", "Marketing", "Sales", "Finance", "HR"]
+    },
+    {
+      "link_name": "Start_Date",
+      "display_name": "Start Date",
+      "type": "Date",
+      "is_mandatory": false
+    }
+  ]
+}
