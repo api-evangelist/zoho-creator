@@ -1,0 +1,69 @@
+aid: zoho-creator
+name: Zoho Creator
+description: Zoho Creator is a low-code application development platform with a REST API for managing forms, records, reports, workflows, and custom application data. The API enables developers to perform CRUD operations on application data, upload and download files, retrieve metadata about forms and reports, execute custom server-side functions, and build custom API endpoints. It uses OAuth 2.0 for authentication and supports Data APIs, Publish APIs, File APIs, Meta APIs, Bulk Read APIs, and Custom APIs with an OpenAPI 3.0 specification available for download.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/zoho-creator/refs/heads/main/apis.yml
+created: "2026-06-13"
+modified: "2026-06-13"
+specificationVersion: "0.19"
+tags:
+  - Low-Code
+  - Application Development
+  - No-Code
+  - Forms
+  - Records
+  - Workflows
+  - Database
+  - CRUD
+  - Business Applications
+apis:
+  - name: Zoho Creator REST API v2.1
+    description: RESTful API for managing Zoho Creator application data including forms, records, reports, files, and metadata. Supports CRUD operations, bulk reads, file uploads/downloads, and custom developer-defined API endpoints.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://www.zoho.com/creator/help/api/v2.1/
+    baseURL: https://creator.zoho.com/api/v2.1/
+    tags:
+      - Low-Code
+      - Records
+      - Forms
+      - Reports
+      - Files
+      - Metadata
+      - Bulk Read
+    properties:
+      - type: Documentation
+        url: https://www.zoho.com/creator/help/api/v2.1/
+      - type: OpenAPI
+        url: https://creator.zoho.com/api/v2/downloadOAS
+      - type: Authentication
+        url: https://www.zoho.com/creator/help/api/v2.1/oauth.html
+    contact:
+      - FN: Zoho Creator Support
+        url: https://help.zoho.com/portal/en/community/zoho-creator
+        email: support@zohocreator.com
+common:
+  - type: Website
+    url: https://www.zoho.com/creator/
+  - type: Documentation
+    url: https://www.zoho.com/creator/help/
+  - type: GitHubOrg
+    url: https://github.com/zoho
+  - type: LinkedIn
+    url: https://www.linkedin.com/showcase/zohocreator/
+  - type: Blog
+    url: https://www.zoho.com/blog/creator
+  - type: Pricing
+    url: https://www.zoho.com/creator/pricing.html
+  - type: StatusPage
+    url: https://zohostatus.com/
+  - type: X
+    url: https://twitter.com/ZohoCreator
+  - type: Plans
+    url: plans/zoho-creator-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/zoho-creator-rate-limits.yml
+  - type: FinOps
+    url: finops/zoho-creator-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

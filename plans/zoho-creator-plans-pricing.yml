@@ -1,0 +1,94 @@
+name: Zoho Creator Plans and Pricing
+description: Pricing plans for Zoho Creator low-code application development platform
+url: https://www.zoho.com/creator/pricing.html
+plans:
+  - name: Free Edition
+    description: For individuals or small teams building their first application
+    price: 0
+    currency: USD
+    billing_period: monthly
+    features:
+      - 1 custom application
+      - 1 user
+      - Developer API limit: 250 calls/day
+      - Custom API limit: 100 calls/day
+      - 200 MB data storage
+      - 200 MB file storage
+
+  - name: Standard
+    description: Build and launch first business apps for your organization
+    price: 8
+    currency: USD
+    billing_period: monthly
+    billing_note: Per user per month, billed annually. Monthly billing available at higher rate.
+    features:
+      - Unlimited applications
+      - Developer API limit: 250 calls/user/day
+      - Custom API limit: 100 calls/user/day
+      - Cloud function calls: 50 calls/user/day (max 5,000/day)
+      - 5 data source connections
+      - 5 custom connectors
+      - 1 GB data storage per user
+      - Webhooks
+      - REST API access
+
+  - name: Professional
+    description: Run scalable apps across teams and departments
+    price: 20
+    currency: USD
+    billing_period: monthly
+    billing_note: Per user per month, billed annually. Monthly billing at $30/user/month.
+    most_popular: true
+    features:
+      - Unlimited applications
+      - Developer API limit: 500 calls/user/day
+      - Custom API limit: 250 calls/user/day
+      - Cloud function calls: 100 calls/user/day (max 10,000/day)
+      - 15 data source connections
+      - 10 custom connectors
+      - 5 GB data storage per user
+      - Webhooks
+      - REST API access
+      - Advanced analytics
+
+  - name: Enterprise
+    description: Architect enterprise-wide apps with advanced integrations and analytics
+    price: 25
+    currency: USD
+    billing_period: monthly
+    billing_note: Per user per month, billed annually. Monthly billing at $37/user/month.
+    features:
+      - Unlimited applications
+      - Developer API limit: 1000 calls/user/day
+      - Custom API limit: 500 calls/user/day
+      - Cloud function calls: 200 calls/user/day (max 20,000/day)
+      - 30 data source connections
+      - 20 custom connectors
+      - 10 GB data storage per user
+      - Webhooks
+      - REST API access
+      - Enterprise analytics and reporting
+      - Custom domain
+      - Priority support
+
+  - name: Flex
+    description: Custom tailored plan for unique enterprise requirements
+    price: custom
+    currency: USD
+    billing_period: custom
+    billing_note: Contact Zoho sales for custom pricing
+    features:
+      - Custom API limits
+      - Custom data storage
+      - Tailored integrations
+      - Dedicated support
+
+  - name: Zoho One
+    description: All-in-one suite including Zoho Creator access
+    price: custom
+    currency: USD
+    billing_period: monthly
+    features:
+      - Developer API limit: 1000 calls/user/day
+      - Custom API limit: 500 calls/user/day
+      - Access to all Zoho applications

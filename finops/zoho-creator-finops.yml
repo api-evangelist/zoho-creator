@@ -1,0 +1,69 @@
+name: Zoho Creator FinOps
+description: Financial operations guidance for managing Zoho Creator API costs and consumption
+url: https://www.zoho.com/creator/pricing.html
+
+cost_model:
+  type: per-user-subscription
+  description: Zoho Creator is priced on a per-user per-month subscription model. API call limits scale with the number of licensed users and the plan tier.
+  billing_units:
+    - name: User License
+      description: Each licensed user contributes to the pool of daily API calls available to the organization
+    - name: API Call
+      description: Individual REST API requests consumed against daily per-user limits
+
+optimization_strategies:
+  - name: Right-size Plan Selection
+    description: Match API call requirements to plan tier. Standard (250 dev API/user/day) may suffice for light integrations; Enterprise (1000/user/day) for heavy automation.
+    recommendation: Audit actual daily API consumption via Zoho Creator usage dashboards before upgrading plans
+
+  - name: Batch Operations
+    description: Use Bulk Read APIs for large dataset retrieval to reduce total API call count compared to paginated single-record fetches
+    api_reference: https://www.zoho.com/creator/help/api/v2.1/
+
+  - name: Deluge Script Optimization
+    description: Deluge integration tasks and invokeURL calls to Creator APIs each count as Developer API calls. Consolidate multiple API calls into single Deluge functions where possible to minimize consumption.
+
+  - name: Custom API Usage
+    description: Custom APIs have a separate daily limit (lower than Developer APIs). Reserve Custom API calls for external consumer-facing integrations; use Developer APIs for internal automation.
+
+  - name: Caching
+    description: Cache read responses client-side for frequently accessed, rarely changing data (metadata, field definitions) to reduce repetitive API calls
+
+  - name: Per-Minute Throttle Monitoring
+    description: Implement exponential backoff when HTTP 429 responses are received. The 50 calls/user/minute throttle limit is the most likely constraint for real-time integrations.
+    http_status: 429
+
+  - name: Concurrent Request Management
+    description: Limit concurrent API calls to 6 per account to avoid HTTP 429 errors. Queue requests or implement a semaphore in integration code.
+
+cost_tiers:
+  - tier: Standard
+    price_per_user_month_annual: 8
+    developer_api_per_user_day: 250
+    cost_per_api_call_estimate: Low (shared pool across users)
+
+  - tier: Professional
+    price_per_user_month_annual: 20
+    developer_api_per_user_day: 500
+    cost_per_api_call_estimate: Moderate (double the Standard calls for 2.5x price)
+
+  - tier: Enterprise
+    price_per_user_month_annual: 25
+    developer_api_per_user_day: 1000
+    cost_per_api_call_estimate: Best value for API-heavy workloads
+
+monitoring:
+  description: Monitor API usage through the Zoho Creator admin console and Billing page
+  url: https://www.zoho.com/creator/help/
+  alerts:
+    - type: Daily limit exhaustion
+      action: Upgrade plan or purchase additional API call capacity from Billing page
+    - type: Per-minute throttle (HTTP 429)
+      action: Implement retry logic with exponential backoff in integration code
+    - type: Concurrent request limit (HTTP 429)
+      action: Queue API requests and limit concurrent calls to 6 per account
+
+additional_purchase:
+  description: Zoho Creator allows purchasing additional API call capacity beyond plan limits
+  url: https://www.zoho.com/creator/pricing.html
+  method: Upgrade or add-on via Billing page in Zoho Creator admin console

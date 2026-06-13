@@ -1,0 +1,69 @@
+name: Zoho Creator API Rate Limits
+description: API usage and throttle limits for Zoho Creator REST API v2.1
+url: https://www.zoho.com/creator/help/api/v2.1/api-limits.html
+version: v2.1
+
+daily_limits:
+  description: API usage limits calculated on a daily basis, resetting from 00:00 to 23:59 based on Super Admin account timezone
+  note: Integration tasks in Deluge and invokeURL function calls to Creator APIs each consume one Developer API call toward daily limits
+  plans:
+    - plan: Free Edition
+      developer_api_calls: 250
+      developer_api_period: per day (account-wide)
+      custom_api_calls: 100
+      custom_api_period: per day (account-wide)
+
+    - plan: Standard
+      developer_api_calls: 250
+      developer_api_period: per user per day
+      custom_api_calls: 100
+      custom_api_period: per user per day
+
+    - plan: Professional
+      developer_api_calls: 500
+      developer_api_period: per user per day
+      custom_api_calls: 250
+      custom_api_period: per user per day
+
+    - plan: Enterprise
+      developer_api_calls: 1000
+      developer_api_period: per user per day
+      custom_api_calls: 500
+      custom_api_period: per user per day
+
+    - plan: Zoho One
+      developer_api_calls: 1000
+      developer_api_period: per user per day
+      custom_api_calls: 500
+      custom_api_period: per user per day
+
+throttle_limits:
+  per_minute:
+    description: Rate limit applied per user per minute across all organizations
+    limit: 50
+    unit: API calls per user per minute
+    publish_apis_note: Publish APIs are limited per IP address instead of per user
+    http_status_on_exceed: 429
+
+  concurrent_requests:
+    description: Maximum simultaneous API calls allowed per account
+    limit: 6
+    unit: concurrent API calls per account
+    publish_apis_note: Publish APIs are limited per IP address instead of per account
+    http_status_on_exceed: 429
+
+api_types:
+  - name: Developer API
+    description: Standard REST API calls for CRUD operations on forms, records, reports, files, and metadata
+    base_url: https://creator.zoho.com/api/v2.1/
+
+  - name: Custom API
+    description: Developer-defined custom endpoints built within Zoho Creator applications
+
+  - name: Publish API
+    description: APIs for accessing records within published (public-facing) application components
+    throttle_by: IP address
+
+overage:
+  description: Additional API calls can be purchased by upgrading the account from the Billing page
+  url: https://www.zoho.com/creator/pricing.html
