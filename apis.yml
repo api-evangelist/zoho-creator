@@ -42,6 +42,10 @@ apis:
         url: https://help.zoho.com/portal/en/community/zoho-creator
         email: support@zohocreator.com
 common:
+  - type: Authentication
+    url: authentication/zoho-creator-authentication.yml
+  - type: OAuthScopes
+    url: scopes/zoho-creator-scopes.yml
   - type: Website
     url: https://www.zoho.com/creator/
   - type: Documentation

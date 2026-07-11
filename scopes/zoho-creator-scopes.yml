@@ -1,0 +1,71 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/openapi.json
+schemes:
+- name: oauth2
+  source: openapi/openapi.json
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://accounts.zoho.com/oauth/v2/auth?access_type=offline
+    tokenUrl: https://accounts.zoho.com/oauth/v2/token
+scopes:
+- scope: ZohoCreator.bulk.CREATE
+  description: Create a bulk read or bulk insert job.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/openapi.json
+- scope: ZohoCreator.bulk.READ
+  description: Check the status or download the result of a bulk read or bulk insert job.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/openapi.json
+- scope: ZohoCreator.dashboard.READ
+  description: Get applications.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/openapi.json
+- scope: ZohoCreator.form.CREATE
+  description: Add records to a form.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/openapi.json
+- scope: ZohoCreator.meta.application.READ
+  description: Get forms, reports in an application.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/openapi.json
+- scope: ZohoCreator.meta.form.READ
+  description: Get list of fields in a form.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/openapi.json
+- scope: ZohoCreator.report.CREATE
+  description: Upload file to a record in a report.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/openapi.json
+- scope: ZohoCreator.report.DELETE
+  description: Delete records in a report.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/openapi.json
+- scope: ZohoCreator.report.READ
+  description: Get records and download file in a report.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/openapi.json
+- scope: ZohoCreator.report.UPDATE
+  description: Update records in a report.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/openapi.json
