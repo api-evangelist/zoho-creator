@@ -42,6 +42,10 @@ apis:
         url: https://help.zoho.com/portal/en/community/zoho-creator
         email: support@zohocreator.com
 common:
+  - type: VulnerabilityDisclosure
+    url: security/zoho-creator-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/zoho-creator-domain-security.yml
   - type: Authentication
     url: authentication/zoho-creator-authentication.yml
   - type: OAuthScopes
