@@ -1,0 +1,272 @@
+openapi: 3.0.3
+info:
+  contact:
+    name: Zoho Creator Support
+    url: https://www.zoho.com/creator/help/
+    email: support@zohocreator.com
+  description: Zoho Creator provides RESTful APIs that allow you to securely interface with your Zoho Creator applications and perform a variety of tasks.
+  title: Zoho Creator API v2 conforming OpenAPI Specification Bulk Insert APIs Bulk Read APIs API
+  version: '2.0'
+servers:
+- description: US Data Center API Server
+  url: https://zohoapis.com/
+- description: IN Data Center API Server
+  url: https://zohoapis.in/
+- description: EU Data Center API Server
+  url: https://zohoapis.eu/
+- description: JP Data Center API Server
+  url: https://zohoapis.jp/
+- description: SA Data Center API Server
+  url: https://zohoapis.sa/
+- description: CA Data Center API Server
+  url: https://zohoapis.ca/
+- description: AU Data Center API Server
+  url: https://zohoapis.com.au/
+- description: CN Data Center API Server
+  url: https://zohoapis.com.cn/
+tags:
+- name: Bulk Read APIs
+  description: APIs to fetch a large set of data in a report
+paths:
+  /creator/v2/bulk/{account_owner_name}/{app_link_name}/report/{report_link_name}/read:
+    post:
+      summary: Create Bulk Read job
+      security:
+      - oauth2:
+        - ZohoCreator.bulk.CREATE
+      requestBody:
+        $ref: '#/components/requestBodies/create_bulk_read_job_request'
+      description: To create a bulk read job to export records.
+      responses:
+        '200':
+          $ref: '#/components/responses/create_bulk_read_job_response'
+        '400':
+          description: '{''code'': 3020, ''message'': ''API request''s body is either missing or incomplete.''}'
+        '401':
+          description: '{''code'': 1030, ''message'': ''Authorization Failure. The access token is either invalid or has expired.''}, {''code'': 2945, ''message'': ''This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.''}, {''code'': 1000, ''message'': ''IAM Error''}'
+        '403':
+          description: '{''code'': 2933, ''message'': ''You do not have permission to access this application.''}, {''code'': 1080, ''message'': ''API calls cannot be made to disabled applications. Please check with the application admin.''}'
+        '404':
+          description: '{''code'': 1040, ''message'': ''No account owner named OWNER_NAME found.''}, {''code'': 2892, ''message'': ''No application named APPLICATION_NAME found. Please check and try again.''}, {''code'': 2894, ''message'': ''No report named REPORT_NAME found. Please check and try again.''}, {''code'': 1000, ''message'': ''Invalid API URL format.''}, {''code'': 2930, ''message'': ''Error Occurred. We are sorry for the inconvenience.''}'
+        '405':
+          description: '{''code'': 1020, ''message'': ''METHOD is not a valid method for this request.''}'
+        '429':
+          description: '{''code'': 2955, ''message'': ''You have reached your API call limit for a minute. Please try again after sometime.''}'
+      parameters:
+      - $ref: '#/components/parameters/version'
+      - $ref: '#/components/parameters/account_owner_name'
+      - $ref: '#/components/parameters/app_link_name'
+      - $ref: '#/components/parameters/report_link_name'
+      tags:
+      - Bulk Read APIs
+  /creator/v2/bulk/{account_owner_name}/{app_link_name}/report/{report_link_name}/read/{job_ID}/result:
+    get:
+      summary: Download Bulk Read Result
+      security:
+      - oauth2:
+        - ZohoCreator.bulk.READ
+      description: To download the bulk read job as a CSV file. The file needs to be in .zip format. Extract it to get the CSV file.
+      responses:
+        '200':
+          $ref: '#/components/responses/download_bulk_read_result_response'
+        '401':
+          description: '{''code'': 1030, ''message'': ''Authorization Failure. The access token is either invalid or has expired.''}, {''code'': 2945, ''message'': ''This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.''}, {''code'': 1000, ''message'': ''IAM Error''}'
+        '404':
+          description: '{''code'': 1000, ''message'': ''Invalid API URL format.''}, {''code'': 2930, ''message'': ''Error Occurred. We are sorry for the inconvenience.''}'
+        '405':
+          description: '{''code'': 1020, ''message'': ''METHOD is not a valid method for this request.''}'
+        '429':
+          description: '{''code'': 2955, ''message'': ''You have reached your API call limit for a minute. Please try again after sometime.''}'
+      parameters:
+      - $ref: '#/components/parameters/version'
+      - $ref: '#/components/parameters/account_owner_name'
+      - $ref: '#/components/parameters/app_link_name'
+      - $ref: '#/components/parameters/report_link_name'
+      - $ref: '#/components/parameters/job_ID'
+      tags:
+      - Bulk Read APIs
+  /creator/v2/bulk/{account_owner_name}/{app_link_name}/report/{report_link_name}/read/{job_ID}:
+    get:
+      summary: Get the Status of the Bulk Read Job
+      security:
+      - oauth2:
+        - ZohoCreator.bulk.READ
+      description: To get the details of a bulk read job performed previously.
+      responses:
+        '200':
+          $ref: '#/components/responses/get_the_status_of_the_bulk_read_job_response'
+        '401':
+          description: '{''code'': 1030, ''message'': ''Authorization Failure. The access token is either invalid or has expired.''}, {''code'': 2945, ''message'': ''This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.''}, {''code'': 1000, ''message'': ''IAM Error''}'
+        '404':
+          description: '{''code'': 1000, ''message'': ''Invalid API URL format.''}, {''code'': 2930, ''message'': ''Error Occurred. We are sorry for the inconvenience.''}'
+        '405':
+          description: '{''code'': 1020, ''message'': ''METHOD is not a valid method for this request.''}'
+        '429':
+          description: '{''code'': 2955, ''message'': ''You have reached your API call limit for a minute. Please try again after sometime.''}'
+      parameters:
+      - $ref: '#/components/parameters/version'
+      - $ref: '#/components/parameters/account_owner_name'
+      - $ref: '#/components/parameters/app_link_name'
+      - $ref: '#/components/parameters/report_link_name'
+      - $ref: '#/components/parameters/job_ID'
+      tags:
+      - Bulk Read APIs
+components:
+  parameters:
+    app_link_name:
+      schema:
+        type: string
+      in: path
+      name: app_link_name
+      version: 2
+      required: true
+    account_owner_name:
+      schema:
+        type: string
+      in: path
+      name: account_owner_name
+      version: 2
+      required: true
+    report_link_name:
+      schema:
+        type: string
+      in: path
+      name: report_link_name
+      version: 2
+      required: true
+    version:
+      schema:
+        type: string
+      in: path
+      name: version
+      version: 2
+      required: true
+    job_ID:
+      schema:
+        type: string
+      in: path
+      name: job_ID
+      version: 2
+      required: true
+  requestBodies:
+    create_bulk_read_job_request:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              query:
+                type: object
+                version: 2
+                properties:
+                  criteria:
+                    type: string
+                    example: Number==1
+                  max_records:
+                    format: int64
+                    maximum: 200000
+                    type: integer
+                    minimum: 100000
+                    example: 150000
+                  fields:
+                    type: array
+                    items:
+                      type: string
+                    example: '["Number","Single_Line","Radio","Date","Checkbox"]'
+  responses:
+    get_the_status_of_the_bulk_read_job_response:
+      description: '{''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                format: int32
+                type: integer
+                example: 3000
+              details:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    properties:
+                      count:
+                        format: int64
+                        type: integer
+                        example: 16
+                      download_url:
+                        type: string
+                        example: /creator/{version}/bulk/jason_18/one/report/b_Report/read/2000000010003/result
+                  created_time:
+                    type: string
+                    example: 03-Sep-2021 14:55:46
+                  id:
+                    type: string
+                    example: 2000000018003
+                  operation:
+                    type: string
+                    example: read
+                  created_by:
+                    type: string
+                    example: jason18
+                  status:
+                    type: string
+                    example: Completed
+    download_bulk_read_result_response:
+      description: '{''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
+      content:
+        '*/*':
+          schema:
+            format: binary
+            type: string
+    create_bulk_read_job_response:
+      description: '{''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                format: int32
+                type: integer
+                example: 3000
+              details:
+                type: object
+                properties:
+                  created_time:
+                    type: string
+                    example: 03-Sep-2021 14:55:46
+                  id:
+                    type: string
+                    example: 2000000018003
+                  operation:
+                    type: string
+                    example: read
+                  created_by:
+                    type: string
+                    example: jason18
+                  status:
+                    type: string
+                    example: In-progress
+  securitySchemes:
+    oauth2:
+      flows:
+        authorizationCode:
+          tokenUrl: https://accounts.zoho.com/oauth/v2/token
+          authorizationUrl: https://accounts.zoho.com/oauth/v2/auth?access_type=offline
+          scopes:
+            ZohoCreator.report.CREATE: Upload file to a record in a report.
+            ZohoCreator.bulk.READ: Check the status or download the result of a bulk read or bulk insert job.
+            ZohoCreator.bulk.CREATE: Create a bulk read or bulk insert job.
+            ZohoCreator.dashboard.READ: Get applications.
+            ZohoCreator.report.UPDATE: Update records in a report.
+            ZohoCreator.meta.application.READ: Get forms, reports in an application.
+            ZohoCreator.report.READ: Get records and download file in a report.
+            ZohoCreator.form.CREATE: Add records to a form.
+            ZohoCreator.report.DELETE: Delete records in a report.
+            ZohoCreator.meta.form.READ: Get list of fields in a form.
+      type: oauth2
+externalDocs:
+  description: Zoho Creator API v2 Documentation
+  url: https://www.zoho.com/creator/help/api/v2/

@@ -1,0 +1,248 @@
+openapi: 3.0.3
+info:
+  contact:
+    name: Zoho Creator Support
+    url: https://www.zoho.com/creator/help/
+    email: support@zohocreator.com
+  description: Zoho Creator provides RESTful APIs that allow you to securely interface with your Zoho Creator applications and perform a variety of tasks.
+  title: Zoho Creator API v2 conforming OpenAPI Specification Bulk Insert APIs File APIs API
+  version: '2.0'
+servers:
+- description: US Data Center API Server
+  url: https://zohoapis.com/
+- description: IN Data Center API Server
+  url: https://zohoapis.in/
+- description: EU Data Center API Server
+  url: https://zohoapis.eu/
+- description: JP Data Center API Server
+  url: https://zohoapis.jp/
+- description: SA Data Center API Server
+  url: https://zohoapis.sa/
+- description: CA Data Center API Server
+  url: https://zohoapis.ca/
+- description: AU Data Center API Server
+  url: https://zohoapis.com.au/
+- description: CN Data Center API Server
+  url: https://zohoapis.com.cn/
+tags:
+- name: File APIs
+  description: APIs to upload or download files in a report
+paths:
+  /creator/v2/data/{account_owner_name}/{app_link_name}/report/{report_link_name}/{record_ID}/{field_link_name}/download:
+    get:
+      summary: Download File
+      security:
+      - oauth2:
+        - ZohoCreator.report.READ
+      description: This API downloads a file from a file upload, image, audio, video, or signature field of a specific record, which is present in a Zoho Creator application.
+      responses:
+        '200':
+          $ref: '#/components/responses/download_file_response'
+        '401':
+          description: '{''code'': 1030, ''message'': ''Authorization Failure. The access token is either invalid or has expired.''}, {''code'': 2945, ''message'': ''This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.''}, {''code'': 1000, ''message'': ''IAM Error''}'
+        '403':
+          description: '{''code'': 2933, ''message'': ''You do not have permission to access this application.''}, {''code'': 1080, ''message'': ''API calls cannot be made to disabled applications. Please check with the application admin.''}'
+        '404':
+          description: '{''code'': 1040, ''message'': ''No account owner named OWNER_NAME found.''}, {''code'': 2892, ''message'': ''No application named APPLICATION_NAME found. Please check and try again.''}, {''code'': 2894, ''message'': ''No report named REPORT_NAME found. Please check and try again.''}, {''code'': 1000, ''message'': ''Invalid API URL format.''}, {''code'': 2930, ''message'': ''Error Occurred. We are sorry for the inconvenience.''}'
+        '405':
+          description: '{''code'': 1020, ''message'': ''METHOD is not a valid method for this request.''}'
+        '429':
+          description: '{''code'': 2955, ''message'': ''You have reached your API call limit for a minute. Please try again after sometime.''}'
+      parameters:
+      - $ref: '#/components/parameters/version'
+      - $ref: '#/components/parameters/account_owner_name'
+      - $ref: '#/components/parameters/app_link_name'
+      - $ref: '#/components/parameters/report_link_name'
+      - $ref: '#/components/parameters/record_ID'
+      - $ref: '#/components/parameters/field_link_name'
+      tags:
+      - File APIs
+  ? /creator/v2/data/{account_owner_name}/{app_link_name}/report/{report_link_name}/{record_ID}/{subform_link_name}/{field_link_name}/{subform_record_ID}/download
+  : get:
+      summary: Download File from Subform
+      security:
+      - oauth2:
+        - ZohoCreator.report.READ
+      description: This API downloads a file from a file upload, image, audio, video, or signature field of a specific subform record of a Zoho Creator application.
+      responses:
+        '200':
+          $ref: '#/components/responses/download_file_from_subform_response'
+        '401':
+          description: '{''code'': 1030, ''message'': ''Authorization Failure. The access token is either invalid or has expired.''}, {''code'': 2945, ''message'': ''This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.''}, {''code'': 1000, ''message'': ''IAM Error''}'
+        '403':
+          description: '{''code'': 2933, ''message'': ''You do not have permission to access this application.''}, {''code'': 1080, ''message'': ''API calls cannot be made to disabled applications. Please check with the application admin.''}'
+        '404':
+          description: '{''code'': 1040, ''message'': ''No account owner named OWNER_NAME found.''}, {''code'': 2892, ''message'': ''No application named APPLICATION_NAME found. Please check and try again.''}, {''code'': 2894, ''message'': ''No report named REPORT_NAME found. Please check and try again.''}, {''code'': 1000, ''message'': ''Invalid API URL format.''}, {''code'': 2930, ''message'': ''Error Occurred. We are sorry for the inconvenience.''}'
+        '405':
+          description: '{''code'': 1020, ''message'': ''METHOD is not a valid method for this request.''}'
+        '429':
+          description: '{''code'': 2955, ''message'': ''You have reached your API call limit for a minute. Please try again after sometime.''}'
+      parameters:
+      - $ref: '#/components/parameters/version'
+      - $ref: '#/components/parameters/account_owner_name'
+      - $ref: '#/components/parameters/app_link_name'
+      - $ref: '#/components/parameters/report_link_name'
+      - $ref: '#/components/parameters/record_ID'
+      - $ref: '#/components/parameters/subform_link_name'
+      - $ref: '#/components/parameters/field_link_name'
+      - $ref: '#/components/parameters/subform_record_ID'
+      tags:
+      - File APIs
+  /creator/v2/data/{account_owner_name}/{app_link_name}/report/{report_link_name}/{record_ID}/{field_link_name}/upload:
+    post:
+      summary: Upload File
+      security:
+      - oauth2:
+        - ZohoCreator.report.CREATE
+      requestBody:
+        $ref: '#/components/requestBodies/upload_file_request'
+      description: This API updates a file to a file upload, image, audio, video, or signature field of a specific record, which is present in a Zoho Creator application.
+      responses:
+        '200':
+          $ref: '#/components/responses/upload_file_response'
+        '401':
+          description: '{''code'': 1030, ''message'': ''Authorization Failure. The access token is either invalid or has expired.''}, {''code'': 2945, ''message'': ''This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.''}, {''code'': 1000, ''message'': ''IAM Error''}'
+        '403':
+          description: '{''code'': 2933, ''message'': ''You do not have permission to access this application.''}, {''code'': 1080, ''message'': ''API calls cannot be made to disabled applications. Please check with the application admin.''}'
+        '404':
+          description: '{''code'': 1040, ''message'': ''No account owner named OWNER_NAME found.''}, {''code'': 2892, ''message'': ''No application named APPLICATION_NAME found. Please check and try again.''}, {''code'': 2894, ''message'': ''No report named REPORT_NAME found. Please check and try again.''}, {''code'': 1000, ''message'': ''Invalid API URL format.''}, {''code'': 2930, ''message'': ''Error Occurred. We are sorry for the inconvenience.''}'
+        '405':
+          description: '{''code'': 1020, ''message'': ''METHOD is not a valid method for this request.''}'
+        '429':
+          description: '{''code'': 2955, ''message'': ''You have reached your API call limit for a minute. Please try again after sometime.''}'
+      parameters:
+      - $ref: '#/components/parameters/version'
+      - $ref: '#/components/parameters/account_owner_name'
+      - $ref: '#/components/parameters/app_link_name'
+      - $ref: '#/components/parameters/report_link_name'
+      - $ref: '#/components/parameters/record_ID'
+      - $ref: '#/components/parameters/field_link_name'
+      tags:
+      - File APIs
+components:
+  responses:
+    download_file_from_subform_response:
+      description: '{''code'': 3190, ''message'': ''No record with ID RECORD_ID found.''}, {''code'': 3710, ''message'': ''No field named LINK_NAME found. Please check and try again.''}, {''code'': 3780, ''message'': ''No subform named LINK_NAME found. Please check and try again.''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
+      content:
+        '*/*':
+          schema:
+            format: binary
+            type: string
+    upload_file_response:
+      description: '{''code'': 3190, ''message'': ''No record with ID RECORD_ID found.''}, {''code'': 3710, ''message'': ''No field named LINK_NAME found. Please check and try again.''}, {''code'': 3830, ''message'': ''You do not have permission to transfer files to/from the field FIELD_NAME. Please check with the application admin.''}, {''code'': 3750, ''message'': ''LINK_NAME is not a file type field. Please check and try again.''}, {''code'': 3660, ''message'': ''No file found in the request. Please include a file and try again.''}, {''code'': 3630, ''message'': ''Input file exceeds the 50 MB limit. Please upload a smaller file.''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                format: int32
+                type: integer
+                example: 3000
+              data:
+                type: object
+                properties:
+                  filename:
+                    type: string
+                    example: Screenshot 2022-10-19 at 20.03.02.png
+                  filepath:
+                    type: string
+                    example: 1668060825937_Screenshot_2022-10-19_at_20.03.02.png
+                  message:
+                    type: string
+                    example: File Uploaded Successfully
+    download_file_response:
+      description: '{''code'': 3190, ''message'': ''No record with ID RECORD_ID found.''}, {''code'': 3710, ''message'': ''No field named LINK_NAME found. Please check and try again.''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
+      content:
+        '*/*':
+          schema:
+            format: binary
+            type: string
+  parameters:
+    account_owner_name:
+      schema:
+        type: string
+      in: path
+      name: account_owner_name
+      version: 2
+      required: true
+    version:
+      schema:
+        type: string
+      in: path
+      name: version
+      version: 2
+      required: true
+    report_link_name:
+      schema:
+        type: string
+      in: path
+      name: report_link_name
+      version: 2
+      required: true
+    subform_link_name:
+      schema:
+        type: string
+      in: path
+      name: subform_link_name
+      version: 2
+      required: true
+    subform_record_ID:
+      schema:
+        type: string
+      in: path
+      name: subform_record_ID
+      version: 2
+      required: true
+    field_link_name:
+      schema:
+        type: string
+      in: path
+      name: field_link_name
+      version: 2
+      required: true
+    record_ID:
+      schema:
+        type: string
+      in: path
+      name: record_ID
+      version: 2
+      required: true
+    app_link_name:
+      schema:
+        type: string
+      in: path
+      name: app_link_name
+      version: 2
+      required: true
+  requestBodies:
+    upload_file_request:
+      content:
+        multipart/form-data:
+          schema:
+            type: object
+            properties:
+              file:
+                format: binary
+                type: string
+  securitySchemes:
+    oauth2:
+      flows:
+        authorizationCode:
+          tokenUrl: https://accounts.zoho.com/oauth/v2/token
+          authorizationUrl: https://accounts.zoho.com/oauth/v2/auth?access_type=offline
+          scopes:
+            ZohoCreator.report.CREATE: Upload file to a record in a report.
+            ZohoCreator.bulk.READ: Check the status or download the result of a bulk read or bulk insert job.
+            ZohoCreator.bulk.CREATE: Create a bulk read or bulk insert job.
+            ZohoCreator.dashboard.READ: Get applications.
+            ZohoCreator.report.UPDATE: Update records in a report.
+            ZohoCreator.meta.application.READ: Get forms, reports in an application.
+            ZohoCreator.report.READ: Get records and download file in a report.
+            ZohoCreator.form.CREATE: Add records to a form.
+            ZohoCreator.report.DELETE: Delete records in a report.
+            ZohoCreator.meta.form.READ: Get list of fields in a form.
+      type: oauth2
+externalDocs:
+  description: Zoho Creator API v2 Documentation
+  url: https://www.zoho.com/creator/help/api/v2/
