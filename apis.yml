@@ -1,7 +1,20 @@
 aid: zoho-creator
 name: Zoho Creator
 description: Zoho Creator is a low-code application development platform with a REST API for managing forms, records, reports, workflows, and custom application data. The API enables developers to perform CRUD operations on application data, upload and download files, retrieve metadata about forms and reports, execute custom server-side functions, and build custom API endpoints. It uses OAuth 2.0 for authentication and supports Data APIs, Publish APIs, File APIs, Meta APIs, Bulk Read APIs, and Custom APIs with an OpenAPI 3.0 specification available for download.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/zoho-creator.png
 url: https://raw.githubusercontent.com/api-evangelist/zoho-creator/refs/heads/main/apis.yml
 created: "2026-06-13"
 modified: "2026-06-13"
@@ -17,30 +30,90 @@ tags:
   - CRUD
   - Business Applications
 apis:
-  - name: Zoho Creator REST API v2.1
-    description: RESTful API for managing Zoho Creator application data including forms, records, reports, files, and metadata. Supports CRUD operations, bulk reads, file uploads/downloads, and custom developer-defined API endpoints.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://www.zoho.com/creator/help/api/v2.1/
-    baseURL: https://creator.zoho.com/api/v2.1/
-    tags:
-      - Low-Code
-      - Records
-      - Forms
-      - Reports
-      - Files
-      - Metadata
-      - Bulk Read
-    properties:
-      - type: Documentation
-        url: https://www.zoho.com/creator/help/api/v2.1/
-      - type: OpenAPI
-        url: https://creator.zoho.com/api/v2/downloadOAS
-      - type: Authentication
-        url: https://www.zoho.com/creator/help/api/v2.1/oauth.html
-    contact:
-      - FN: Zoho Creator Support
-        url: https://help.zoho.com/portal/en/community/zoho-creator
-        email: support@zohocreator.com
+- aid: zoho-creator:zoho-creator-bulk-insert-apis-api
+  name: Zoho Creator Bulk Insert APIs API
+  description: APIs to insert a large set of data into a form
+  humanURL: https://www.zoho.com/creator/help/api/v2.1/
+  baseURL: https://creator.zoho.com/api/v2.1/
+  tags:
+  - Bulk Insert APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/zoho-creator-bulk-insert-apis-api-openapi.yml
+  - type: Documentation
+    url: https://www.zoho.com/creator/help/api/v2.1/
+  - type: Authentication
+    url: https://www.zoho.com/creator/help/api/v2.1/oauth.html
+- aid: zoho-creator:zoho-creator-bulk-read-apis-api
+  name: Zoho Creator Bulk Read APIs API
+  description: APIs to fetch a large set of data in a report
+  humanURL: https://www.zoho.com/creator/help/api/v2.1/
+  baseURL: https://creator.zoho.com/api/v2.1/
+  tags:
+  - Bulk Read APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/zoho-creator-bulk-read-apis-api-openapi.yml
+  - type: Documentation
+    url: https://www.zoho.com/creator/help/api/v2.1/
+  - type: Authentication
+    url: https://www.zoho.com/creator/help/api/v2.1/oauth.html
+- aid: zoho-creator:zoho-creator-data-apis-api
+  name: Zoho Creator Data APIs API
+  description: APIs to add, update, delete or get records in a form/report
+  humanURL: https://www.zoho.com/creator/help/api/v2.1/
+  baseURL: https://creator.zoho.com/api/v2.1/
+  tags:
+  - Data APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/zoho-creator-data-apis-api-openapi.yml
+  - type: Documentation
+    url: https://www.zoho.com/creator/help/api/v2.1/
+  - type: Authentication
+    url: https://www.zoho.com/creator/help/api/v2.1/oauth.html
+- aid: zoho-creator:zoho-creator-file-apis-api
+  name: Zoho Creator File APIs API
+  description: APIs to upload or download files in a report
+  humanURL: https://www.zoho.com/creator/help/api/v2.1/
+  baseURL: https://creator.zoho.com/api/v2.1/
+  tags:
+  - File APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/zoho-creator-file-apis-api-openapi.yml
+  - type: Documentation
+    url: https://www.zoho.com/creator/help/api/v2.1/
+  - type: Authentication
+    url: https://www.zoho.com/creator/help/api/v2.1/oauth.html
+- aid: zoho-creator:zoho-creator-meta-apis-api
+  name: Zoho Creator Meta APIs API
+  description: Get list of applications, forms, reports and fields
+  humanURL: https://www.zoho.com/creator/help/api/v2.1/
+  baseURL: https://creator.zoho.com/api/v2.1/
+  tags:
+  - Meta APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/zoho-creator-meta-apis-api-openapi.yml
+  - type: Documentation
+    url: https://www.zoho.com/creator/help/api/v2.1/
+  - type: Authentication
+    url: https://www.zoho.com/creator/help/api/v2.1/oauth.html
+- aid: zoho-creator:zoho-creator-publish-apis-api
+  name: Zoho Creator Publish APIs API
+  description: APIs to add or get records in a published form/report
+  humanURL: https://www.zoho.com/creator/help/api/v2.1/
+  baseURL: https://creator.zoho.com/api/v2.1/
+  tags:
+  - Publish APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/zoho-creator-publish-apis-api-openapi.yml
+  - type: Documentation
+    url: https://www.zoho.com/creator/help/api/v2.1/
+  - type: Authentication
+    url: https://www.zoho.com/creator/help/api/v2.1/oauth.html
 common:
   - type: AgenticAccess
     url: agentic-access/zoho-creator-agentic-access.yml
