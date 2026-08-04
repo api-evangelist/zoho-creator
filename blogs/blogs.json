@@ -2,17 +2,10 @@
   "repo": "zoho-creator",
   "feeds": [
     {
-      "source": "https://www.zoho.com/blog/creator/feed/",
-      "feed_url": "https://www.zoho.com/blog/creator/feed/",
-      "title": "",
-      "saved": 0,
-      "method": "feed"
-    },
-    {
       "source": "https://www.linkedin.com/showcase/zohocreator/",
       "error": "HTTPError"
     }
   ],
-  "fetched": "2026-07-11T11:50:51Z",
+  "fetched": "2026-08-01T15:49:00Z",
   "post_count": 16
 }

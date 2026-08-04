@@ -1,0 +1,24 @@
+{
+  "provider": "zoho-creator",
+  "sources": [
+    "zoho-creator-bulk-insert-apis-api-openapi.yml",
+    "zoho-creator-bulk-read-apis-api-openapi.yml",
+    "zoho-creator-data-apis-api-openapi.yml",
+    "zoho-creator-file-apis-api-openapi.yml",
+    "zoho-creator-meta-apis-api-openapi.yml",
+    "zoho-creator-publish-apis-api-openapi.yml"
+  ],
+  "outputs": [
+    "zoho-creator-bulk-insert-apis-api-openapi.yml",
+    "zoho-creator-bulk-read-apis-api-openapi.yml",
+    "zoho-creator-data-apis-api-openapi.yml",
+    "zoho-creator-file-apis-api-openapi.yml",
+    "zoho-creator-meta-apis-api-openapi.yml",
+    "zoho-creator-publish-apis-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
