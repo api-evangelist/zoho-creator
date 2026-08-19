@@ -1,0 +1,197 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zoho Creator API v2 conforming OpenAPI Specification Bulk Insert APIs File APIs API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "File APIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Download File",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://zohoapis.com/creator/v2/data/:account_owner_name/:app_link_name/report/:report_link_name/:record_ID/:field_link_name/download",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "account_owner_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "app_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "report_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "record_ID",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "field_link_name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline",
+              "accessTokenUrl": "https://accounts.zoho.com/oauth/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "This API downloads a file from a file upload, image, audio, video, or signature field of a specific record, which is present in a Zoho Creator application."
+        },
+        {
+          "info": {
+            "name": "Download File from Subform",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://zohoapis.com/creator/v2/data/:account_owner_name/:app_link_name/report/:report_link_name/:record_ID/:subform_link_name/:field_link_name/:subform_record_ID/download",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "account_owner_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "app_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "report_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "record_ID",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "subform_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "field_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "subform_record_ID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline",
+              "accessTokenUrl": "https://accounts.zoho.com/oauth/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "This API downloads a file from a file upload, image, audio, video, or signature field of a specific subform record of a Zoho Creator application."
+        },
+        {
+          "info": {
+            "name": "Upload File",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://zohoapis.com/creator/v2/data/:account_owner_name/:app_link_name/report/:report_link_name/:record_ID/:field_link_name/upload",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "account_owner_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "app_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "report_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "record_ID",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "field_link_name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline",
+              "accessTokenUrl": "https://accounts.zoho.com/oauth/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "This API updates a file to a file upload, image, audio, video, or signature field of a specific record, which is present in a Zoho Creator application."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,161 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zoho Creator API v2 conforming OpenAPI Specification Bulk Insert APIs Bulk Read APIs API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bulk Read APIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Bulk Read job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://zohoapis.com/creator/v2/bulk/:account_owner_name/:app_link_name/report/:report_link_name/read",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "account_owner_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "app_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "report_link_name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline",
+              "accessTokenUrl": "https://accounts.zoho.com/oauth/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "To create a bulk read job to export records."
+        },
+        {
+          "info": {
+            "name": "Download Bulk Read Result",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://zohoapis.com/creator/v2/bulk/:account_owner_name/:app_link_name/report/:report_link_name/read/:job_ID/result",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "account_owner_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "app_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "report_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "job_ID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline",
+              "accessTokenUrl": "https://accounts.zoho.com/oauth/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "To download the bulk read job as a CSV file. The file needs to be in .zip format. Extract it to get the CSV file."
+        },
+        {
+          "info": {
+            "name": "Get the Status of the Bulk Read Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://zohoapis.com/creator/v2/bulk/:account_owner_name/:app_link_name/report/:report_link_name/read/:job_ID",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "account_owner_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "app_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "report_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "job_ID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline",
+              "accessTokenUrl": "https://accounts.zoho.com/oauth/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "To get the details of a bulk read job performed previously."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

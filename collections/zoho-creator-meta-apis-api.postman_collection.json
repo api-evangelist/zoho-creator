@@ -1,0 +1,3193 @@
+{
+  "item": [
+    {
+      "id": "980a2177-7c44-4fa6-bb70-400d041e8a01",
+      "name": "Meta APIs",
+      "description": {
+        "content": "Get list of applications, forms, reports and fields",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e8e08dc1-7012-4dcc-88fe-de780d4fb178",
+          "name": "Get Sections",
+          "request": {
+            "name": "Get Sections",
+            "description": {
+              "content": "This API fetches the information about the sections and underlying components—forms, reports, and pages—defined for a Zoho Creator application's web form factor.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "creator",
+                "v2",
+                "meta",
+                ":account_owner_name",
+                ":app_link_name",
+                "sections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "version",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account_owner_name",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_link_name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoCreator.report.CREATE ZohoCreator.bulk.READ ZohoCreator.bulk.CREATE ZohoCreator.dashboard.READ ZohoCreator.report.UPDATE ZohoCreator.meta.application.READ ZohoCreator.report.READ ZohoCreator.form.CREATE ZohoCreator.report.DELETE ZohoCreator.meta.form.READ"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "64781422-9495-4ecf-8350-dd0e0f571c2c",
+              "name": "{'code': 4000, 'message': 'Account's Developer API limit has been reached. Please upgrade to execute more REST API calls.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    ":app_link_name",
+                    "sections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_link_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3000,\n  \"sections\": [\n    {\n      \"components\": [\n        {\n          \"page_type\": 925,\n          \"type\": 144,\n          \"link_name\": \"string\",\n          \"display_name\": \"string\"\n        },\n        {\n          \"page_type\": 2052,\n          \"type\": 9954,\n          \"link_name\": \"string\",\n          \"display_name\": \"string\"\n        }\n      ],\n      \"display_name\": \"string\",\n      \"link_name\": \"string\"\n    },\n    {\n      \"components\": [\n        {\n          \"page_type\": 466,\n          \"type\": 7214,\n          \"link_name\": \"string\",\n          \"display_name\": \"string\"\n        },\n        {\n          \"page_type\": 4613,\n          \"type\": 4394,\n          \"link_name\": \"string\",\n          \"display_name\": \"string\"\n        }\n      ],\n      \"display_name\": \"string\",\n      \"link_name\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bfadcf5e-ab27-4e15-b43f-3521400613ec",
+              "name": "{'code': 1030, 'message': 'Authorization Failure. The access token is either invalid or has expired.'}, {'code': 2945, 'message': 'This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.'}, {'code': 1000, 'message': 'IAM Error'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    ":app_link_name",
+                    "sections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_link_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9fbef840-2bd4-4cd0-8f4f-42fec286d657",
+              "name": "{'code': 2933, 'message': 'You do not have permission to access this application.'}, {'code': 1080, 'message': 'API calls cannot be made to disabled applications. Please check with the application admin.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    ":app_link_name",
+                    "sections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_link_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "acae0027-799a-442c-9918-324e713a298f",
+              "name": "{'code': 1040, 'message': 'No account owner named OWNER_NAME found.'}, {'code': 2892, 'message': 'No application named APPLICATION_NAME found. Please check and try again.'}, {'code': 1000, 'message': 'Invalid API URL format.'}, {'code': 2930, 'message': 'Error Occurred. We are sorry for the inconvenience.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    ":app_link_name",
+                    "sections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_link_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "02c5c6d9-171f-40f7-a6bc-39b7ef393d57",
+              "name": "{'code': 1020, 'message': 'METHOD is not a valid method for this request.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    ":app_link_name",
+                    "sections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_link_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "98041469-6b59-4105-8c2f-509f631785fc",
+              "name": "{'code': 2955, 'message': 'You have reached your API call limit for a minute. Please try again after sometime.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    ":app_link_name",
+                    "sections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_link_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "352ed05b-af61-4014-9482-399f2fd3f482",
+          "name": "Get Fields",
+          "request": {
+            "name": "Get Fields",
+            "description": {
+              "content": "This API fetches the meta information of all the fields present in a form of a Zoho Creator application.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "creator",
+                "v2",
+                "meta",
+                ":account_owner_name",
+                ":app_link_name",
+                "form",
+                ":form_link_name",
+                "fields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "version",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account_owner_name",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_link_name",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "form_link_name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoCreator.report.CREATE ZohoCreator.bulk.READ ZohoCreator.bulk.CREATE ZohoCreator.dashboard.READ ZohoCreator.report.UPDATE ZohoCreator.meta.application.READ ZohoCreator.report.READ ZohoCreator.form.CREATE ZohoCreator.report.DELETE ZohoCreator.meta.form.READ"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cbd43bbf-4de1-4508-a184-2b722d829bda",
+              "name": "{'code': 3910, 'message': 'No forms available.'}, {'code': 4000, 'message': 'Account's Developer API limit has been reached. Please upgrade to execute more REST API calls.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    ":app_link_name",
+                    "form",
+                    ":form_link_name",
+                    "fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_link_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "form_link_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3000,\n  \"fields\": [\n    {\n      \"unique\": false,\n      \"max_char\": 1562,\n      \"display_name\": \"string\",\n      \"link_name\": \"string\",\n      \"type\": 8497,\n      \"mandatory\": true\n    },\n    {\n      \"unique\": true,\n      \"max_char\": 7745,\n      \"display_name\": \"string\",\n      \"link_name\": \"string\",\n      \"type\": 2156,\n      \"mandatory\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fccedad6-66ac-4ad1-851a-127f6be33afe",
+              "name": "{'code': 1030, 'message': 'Authorization Failure. The access token is either invalid or has expired.'}, {'code': 2945, 'message': 'This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.'}, {'code': 1000, 'message': 'IAM Error'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    ":app_link_name",
+                    "form",
+                    ":form_link_name",
+                    "fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_link_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "form_link_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ec3f5def-285b-4f63-8582-0b0e98426d76",
+              "name": "{'code': 2933, 'message': 'You do not have permission to access this application.'}, {'code': 1080, 'message': 'API calls cannot be made to disabled applications. Please check with the application admin.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    ":app_link_name",
+                    "form",
+                    ":form_link_name",
+                    "fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_link_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "form_link_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "60df3969-d2ca-4008-80f5-a8a8246168c8",
+              "name": "{'code': 1040, 'message': 'No account owner named OWNER_NAME found.'}, {'code': 2892, 'message': 'No application named APPLICATION_NAME found. Please check and try again.'}, {'code': 2893, 'message': 'No form named FORM_NAME found. Please check and try again.'}, {'code': 1000, 'message': 'Invalid API URL format.'}, {'code': 2930, 'message': 'Error Occurred. We are sorry for the inconvenience.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    ":app_link_name",
+                    "form",
+                    ":form_link_name",
+                    "fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_link_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "form_link_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8c01f027-d484-42b5-a8db-8ff9da3285c1",
+              "name": "{'code': 1020, 'message': 'METHOD is not a valid method for this request.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    ":app_link_name",
+                    "form",
+                    ":form_link_name",
+                    "fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_link_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "form_link_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bb7b7eb4-6bbb-4cbe-a411-5b8ffc1068f2",
+              "name": "{'code': 2955, 'message': 'You have reached your API call limit for a minute. Please try again after sometime.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    ":app_link_name",
+                    "form",
+                    ":form_link_name",
+                    "fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_link_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "form_link_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "82eae2e8-9755-46c5-ac0a-b98c55bee1fa",
+          "name": "Get Reports",
+          "request": {
+            "name": "Get Reports",
+            "description": {
+              "content": "This API fetches the meta information of all the reports present in a Zoho Creator application.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "creator",
+                "v2",
+                "meta",
+                ":account_owner_name",
+                ":app_link_name",
+                "reports"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "version",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account_owner_name",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_link_name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoCreator.report.CREATE ZohoCreator.bulk.READ ZohoCreator.bulk.CREATE ZohoCreator.dashboard.READ ZohoCreator.report.UPDATE ZohoCreator.meta.application.READ ZohoCreator.report.READ ZohoCreator.form.CREATE ZohoCreator.report.DELETE ZohoCreator.meta.form.READ"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "dd4b9c72-be1a-4cf9-830e-634b0cee7371",
+              "name": "{'code': 3930, 'message': 'No reports available.'}, {'code': 4000, 'message': 'Account's Developer API limit has been reached. Please upgrade to execute more REST API calls.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    ":app_link_name",
+                    "reports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_link_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"reports\": [\n    {\n      \"display_name\": \"string\",\n      \"link_name\": \"string\",\n      \"type\": 5305\n    },\n    {\n      \"display_name\": \"string\",\n      \"link_name\": \"string\",\n      \"type\": 5528\n    }\n  ],\n  \"code\": 3000\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c73ba6e5-ec2d-46af-b423-db49c1a3b1f7",
+              "name": "{'code': 1030, 'message': 'Authorization Failure. The access token is either invalid or has expired.'}, {'code': 2945, 'message': 'This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.'}, {'code': 1000, 'message': 'IAM Error'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    ":app_link_name",
+                    "reports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_link_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d9a3003a-a209-4a7f-b5ca-94207fd4cf48",
+              "name": "{'code': 2933, 'message': 'You do not have permission to access this application.'}, {'code': 1080, 'message': 'API calls cannot be made to disabled applications. Please check with the application admin.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    ":app_link_name",
+                    "reports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_link_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4716de5b-ee12-431b-8888-99135d61c678",
+              "name": "{'code': 1040, 'message': 'No account owner named OWNER_NAME found.'}, {'code': 2892, 'message': 'No application named APPLICATION_NAME found. Please check and try again.'}, {'code': 2894, 'message': 'No report named REPORT_NAME found. Please check and try again.'}, {'code': 1000, 'message': 'Invalid API URL format.'}, {'code': 2930, 'message': 'Error Occurred. We are sorry for the inconvenience.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    ":app_link_name",
+                    "reports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_link_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "78d793bd-7b3e-47f5-9634-d5ac2cc71ed4",
+              "name": "{'code': 1020, 'message': 'METHOD is not a valid method for this request.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    ":app_link_name",
+                    "reports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_link_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3f645956-3fdc-48e2-a624-9c471c5aa6cb",
+              "name": "{'code': 2955, 'message': 'You have reached your API call limit for a minute. Please try again after sometime.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    ":app_link_name",
+                    "reports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_link_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "35839a78-39ef-43b8-a3c6-8140b4406088",
+          "name": "Get Pages",
+          "request": {
+            "name": "Get Pages",
+            "description": {
+              "content": "This API fetches the meta information of all the pages present in a Zoho Creator application.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "creator",
+                "v2",
+                "meta",
+                ":account_owner_name",
+                ":app_link_name",
+                "pages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "version",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account_owner_name",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_link_name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoCreator.report.CREATE ZohoCreator.bulk.READ ZohoCreator.bulk.CREATE ZohoCreator.dashboard.READ ZohoCreator.report.UPDATE ZohoCreator.meta.application.READ ZohoCreator.report.READ ZohoCreator.form.CREATE ZohoCreator.report.DELETE ZohoCreator.meta.form.READ"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9bba3d14-7912-491b-982f-d64cebce3aba",
+              "name": "{'code': 3920, 'message': 'No pages available.'}, {'code': 4000, 'message': 'Account's Developer API limit has been reached. Please upgrade to execute more REST API calls.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    ":app_link_name",
+                    "pages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_link_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3000,\n  \"pages\": [\n    {\n      \"display_name\": \"string\",\n      \"link_name\": \"string\"\n    },\n    {\n      \"display_name\": \"string\",\n      \"link_name\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "84441b2b-cb1f-4e2f-b163-4dc0644c6295",
+              "name": "{'code': 1030, 'message': 'Authorization Failure. The access token is either invalid or has expired.'}, {'code': 2945, 'message': 'This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.'}, {'code': 1000, 'message': 'IAM Error'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    ":app_link_name",
+                    "pages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_link_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "91995330-79d6-434c-8477-6d893a9e1715",
+              "name": "{'code': 2933, 'message': 'You do not have permission to access this application.'}, {'code': 1080, 'message': 'API calls cannot be made to disabled applications. Please check with the application admin.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    ":app_link_name",
+                    "pages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_link_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ae5aa418-4d0d-4353-ab41-1495303df291",
+              "name": "{'code': 1040, 'message': 'No account owner named OWNER_NAME found.'}, {'code': 2892, 'message': 'No application named APPLICATION_NAME found. Please check and try again.'}, {'code': 1090, 'message': 'No component named COMPONENT_NAME found in this application. Please check and try again.'}, {'code': 1000, 'message': 'Invalid API URL format.'}, {'code': 2930, 'message': 'Error Occurred. We are sorry for the inconvenience.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    ":app_link_name",
+                    "pages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_link_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e3efa1e5-c484-4955-9172-36e7f7c739d3",
+              "name": "{'code': 1020, 'message': 'METHOD is not a valid method for this request.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    ":app_link_name",
+                    "pages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_link_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "76086458-46d5-4588-90e0-a1385b9aa5ec",
+              "name": "{'code': 2955, 'message': 'You have reached your API call limit for a minute. Please try again after sometime.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    ":app_link_name",
+                    "pages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_link_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dc0b60d2-9fc5-435d-a497-88055fe02b6d",
+          "name": "Get Applications",
+          "request": {
+            "name": "Get Applications",
+            "description": {
+              "content": "This API fetches the meta information of all the applications that you have access to.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "creator",
+                "v2",
+                "meta",
+                "applications"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "version",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoCreator.report.CREATE ZohoCreator.bulk.READ ZohoCreator.bulk.CREATE ZohoCreator.dashboard.READ ZohoCreator.report.UPDATE ZohoCreator.meta.application.READ ZohoCreator.report.READ ZohoCreator.form.CREATE ZohoCreator.report.DELETE ZohoCreator.meta.form.READ"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "69ab3f80-0ab9-47a1-bd97-6b2e6f3b0c0d",
+              "name": "{'code': 4000, 'message': 'Account's Developer API limit has been reached. Please upgrade to execute more REST API calls.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3000,\n  \"applications\": [\n    {\n      \"application_name\": \"string\",\n      \"date_format\": \"string\",\n      \"creation_date\": \"string\",\n      \"link_name\": \"string\",\n      \"category\": 1709,\n      \"time_zone\": \"string\",\n      \"created_by\": \"string\",\n      \"workspace_name\": \"string\"\n    },\n    {\n      \"application_name\": \"string\",\n      \"date_format\": \"string\",\n      \"creation_date\": \"string\",\n      \"link_name\": \"string\",\n      \"category\": 7278,\n      \"time_zone\": \"string\",\n      \"created_by\": \"string\",\n      \"workspace_name\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "40c94ca3-bc4f-4e16-9519-53a71f60a1e1",
+              "name": "{'code': 1030, 'message': 'Authorization Failure. The access token is either invalid or has expired.'}, {'code': 2945, 'message': 'This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.'}, {'code': 1000, 'message': 'IAM Error'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2acb92ff-e60c-49f8-9845-99566ef33de1",
+              "name": "{'code': 1000, 'message': 'Invalid API URL format.'}, {'code': 2930, 'message': 'Error Occurred. We are sorry for the inconvenience.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bd686d56-dcb4-45ef-9928-5537f6cabe09",
+              "name": "{'code': 1020, 'message': 'METHOD is not a valid method for this request.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5fdeb54b-37e5-45d0-bc3d-acbc10e8f4d6",
+              "name": "{'code': 2955, 'message': 'You have reached your API call limit for a minute. Please try again after sometime.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bd29d420-6b86-4d44-8951-b676b1183d33",
+          "name": "Get Applications by Workspace",
+          "request": {
+            "name": "Get Applications by Workspace",
+            "description": {
+              "content": "This API fetches the meta information of the applications hosted in a given workspace that you have access to.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "creator",
+                "v2",
+                "meta",
+                ":account_owner_name",
+                "applications"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "version",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account_owner_name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoCreator.report.CREATE ZohoCreator.bulk.READ ZohoCreator.bulk.CREATE ZohoCreator.dashboard.READ ZohoCreator.report.UPDATE ZohoCreator.meta.application.READ ZohoCreator.report.READ ZohoCreator.form.CREATE ZohoCreator.report.DELETE ZohoCreator.meta.form.READ"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b7afec56-d56c-476e-ba6a-55e14d5af0cb",
+              "name": "{'code': 4000, 'message': 'Account's Developer API limit has been reached. Please upgrade to execute more REST API calls.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3000,\n  \"applications\": [\n    {\n      \"application_name\": \"string\",\n      \"date_format\": \"string\",\n      \"creation_date\": \"string\",\n      \"link_name\": \"string\",\n      \"category\": 4279,\n      \"time_zone\": \"string\",\n      \"created_by\": \"string\",\n      \"workspace_name\": \"string\"\n    },\n    {\n      \"application_name\": \"string\",\n      \"date_format\": \"string\",\n      \"creation_date\": \"string\",\n      \"link_name\": \"string\",\n      \"category\": 4935,\n      \"time_zone\": \"string\",\n      \"created_by\": \"string\",\n      \"workspace_name\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "031108de-5545-4d09-84e6-e2a06781f620",
+              "name": "{'code': 1030, 'message': 'Authorization Failure. The access token is either invalid or has expired.'}, {'code': 2945, 'message': 'This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.'}, {'code': 1000, 'message': 'IAM Error'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fdfd7b90-0c40-423a-8c82-e06e962e019d",
+              "name": "{'code': 1040, 'message': 'No account owner named OWNER_NAME found.'}, {'code': 1000, 'message': 'Invalid API URL format.'}, {'code': 2930, 'message': 'Error Occurred. We are sorry for the inconvenience.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9b8ce19b-df2a-44b1-b4e3-294f0665ca1f",
+              "name": "{'code': 1020, 'message': 'METHOD is not a valid method for this request.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "026d57e1-5f8f-4558-8a17-3349145f7aac",
+              "name": "{'code': 2955, 'message': 'You have reached your API call limit for a minute. Please try again after sometime.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9cd1325b-9365-4f9a-b366-e46ebb432fb8",
+          "name": "Get Forms",
+          "request": {
+            "name": "Get Forms",
+            "description": {
+              "content": "This API fetches the meta information of all the forms present in a Zoho Creator application.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "creator",
+                "v2",
+                "meta",
+                ":account_owner_name",
+                ":app_link_name",
+                "forms"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "version",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account_owner_name",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_link_name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoCreator.report.CREATE ZohoCreator.bulk.READ ZohoCreator.bulk.CREATE ZohoCreator.dashboard.READ ZohoCreator.report.UPDATE ZohoCreator.meta.application.READ ZohoCreator.report.READ ZohoCreator.form.CREATE ZohoCreator.report.DELETE ZohoCreator.meta.form.READ"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0bbd611c-ddd3-48cc-8961-93451549249b",
+              "name": "{'code': 3910, 'message': 'No forms available.'}, {'code': 4000, 'message': 'Account's Developer API limit has been reached. Please upgrade to execute more REST API calls.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    ":app_link_name",
+                    "forms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_link_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3000,\n  \"forms\": [\n    {\n      \"display_name\": \"string\",\n      \"link_name\": \"string\",\n      \"type\": 8278\n    },\n    {\n      \"display_name\": \"string\",\n      \"link_name\": \"string\",\n      \"type\": 1759\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e949ed67-9bb7-4830-8d65-2c99c1e8ddac",
+              "name": "{'code': 1030, 'message': 'Authorization Failure. The access token is either invalid or has expired.'}, {'code': 2945, 'message': 'This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.'}, {'code': 1000, 'message': 'IAM Error'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    ":app_link_name",
+                    "forms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_link_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1418f704-ece7-49b3-ac91-9d12e1c6e48e",
+              "name": "{'code': 2933, 'message': 'You do not have permission to access this application.'}, {'code': 1080, 'message': 'API calls cannot be made to disabled applications. Please check with the application admin.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    ":app_link_name",
+                    "forms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_link_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "20eb25e7-c9ce-4d4e-9c98-3cfebfd77b1a",
+              "name": "{'code': 1040, 'message': 'No account owner named OWNER_NAME found.'}, {'code': 2892, 'message': 'No application named APPLICATION_NAME found. Please check and try again.'}, {'code': 2893, 'message': 'No form named FORM_NAME found. Please check and try again.'}, {'code': 1000, 'message': 'Invalid API URL format.'}, {'code': 2930, 'message': 'Error Occurred. We are sorry for the inconvenience.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    ":app_link_name",
+                    "forms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_link_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "48ba4f26-2617-40b6-9cdd-53c2bef1d369",
+              "name": "{'code': 1020, 'message': 'METHOD is not a valid method for this request.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    ":app_link_name",
+                    "forms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_link_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "00836c8d-9ea0-450a-969f-07e243815a5b",
+              "name": "{'code': 2955, 'message': 'You have reached your API call limit for a minute. Please try again after sometime.'}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "creator",
+                    "v2",
+                    "meta",
+                    ":account_owner_name",
+                    ":app_link_name",
+                    "forms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_owner_name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_link_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://zohoapis.com/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "97e5a170-b49a-4a2f-974c-891c1725bc83",
+    "name": "Zoho Creator API v2 conforming OpenAPI Specification Bulk Insert APIs Meta APIs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Zoho Creator provides RESTful APIs that allow you to securely interface with your Zoho Creator applications and perform a variety of tasks.\n\nContact Support:\n Name: Zoho Creator Support\n Email: support@zohocreator.com",
+      "type": "text/plain"
+    }
+  }
+}

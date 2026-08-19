@@ -1,0 +1,274 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zoho Creator API v2 conforming OpenAPI Specification Bulk Insert APIs Meta APIs API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Meta APIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Sections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://zohoapis.com/creator/v2/meta/:account_owner_name/:app_link_name/sections",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "account_owner_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "app_link_name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline",
+              "accessTokenUrl": "https://accounts.zoho.com/oauth/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "This API fetches the information about the sections and underlying components—forms, reports, and pages—defined for a Zoho Creator application's web form factor."
+        },
+        {
+          "info": {
+            "name": "Get Fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://zohoapis.com/creator/v2/meta/:account_owner_name/:app_link_name/form/:form_link_name/fields",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "account_owner_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "app_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "form_link_name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline",
+              "accessTokenUrl": "https://accounts.zoho.com/oauth/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "This API fetches the meta information of all the fields present in a form of a Zoho Creator application."
+        },
+        {
+          "info": {
+            "name": "Get Reports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://zohoapis.com/creator/v2/meta/:account_owner_name/:app_link_name/reports",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "account_owner_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "app_link_name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline",
+              "accessTokenUrl": "https://accounts.zoho.com/oauth/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "This API fetches the meta information of all the reports present in a Zoho Creator application."
+        },
+        {
+          "info": {
+            "name": "Get Pages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://zohoapis.com/creator/v2/meta/:account_owner_name/:app_link_name/pages",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "account_owner_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "app_link_name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline",
+              "accessTokenUrl": "https://accounts.zoho.com/oauth/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "This API fetches the meta information of all the pages present in a Zoho Creator application."
+        },
+        {
+          "info": {
+            "name": "Get Applications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://zohoapis.com/creator/v2/meta/applications",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline",
+              "accessTokenUrl": "https://accounts.zoho.com/oauth/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "This API fetches the meta information of all the applications that you have access to."
+        },
+        {
+          "info": {
+            "name": "Get Applications by Workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://zohoapis.com/creator/v2/meta/:account_owner_name/applications",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "account_owner_name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline",
+              "accessTokenUrl": "https://accounts.zoho.com/oauth/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "This API fetches the meta information of the applications hosted in a given workspace that you have access to."
+        },
+        {
+          "info": {
+            "name": "Get Forms",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://zohoapis.com/creator/v2/meta/:account_owner_name/:app_link_name/forms",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "account_owner_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "app_link_name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline",
+              "accessTokenUrl": "https://accounts.zoho.com/oauth/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "This API fetches the meta information of all the forms present in a Zoho Creator application."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

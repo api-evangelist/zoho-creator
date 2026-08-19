@@ -1,0 +1,379 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zoho Creator API v2 conforming OpenAPI Specification Bulk Insert APIs Data APIs API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Data APIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Records Quick View",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://zohoapis.com/creator/v2/data/:account_owner_name/:app_link_name/report/:report_link_name",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "account_owner_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "app_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "report_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "criteria",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline",
+              "accessTokenUrl": "https://accounts.zoho.com/oauth/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "This API fetches the records displayed by a report of a Zoho Creator application. Its response will contain the data from the fields displayed in the report's quick view. A maximum of 200 records can be fetched per request."
+        },
+        {
+          "info": {
+            "name": "Update Records",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://zohoapis.com/creator/v2/data/:account_owner_name/:app_link_name/report/:report_link_name",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "account_owner_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "app_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "report_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "process_until_limit",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline",
+              "accessTokenUrl": "https://accounts.zoho.com/oauth/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "This API updates the records displayed in a report of a Zoho Creator application. A maximum of 200 records can be updated per request. Updating records is subject to data validation."
+        },
+        {
+          "info": {
+            "name": "Delete Records",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://zohoapis.com/creator/v2/data/:account_owner_name/:app_link_name/report/:report_link_name",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "account_owner_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "app_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "report_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "process_until_limit",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline",
+              "accessTokenUrl": "https://accounts.zoho.com/oauth/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "This API deletes the records displayed by a report of your Zoho Creator application. A maximum of 200 records can be deleted per request. The delete request is subject to custom validations configured for the target form."
+        },
+        {
+          "info": {
+            "name": "Add Records",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://zohoapis.com/creator/v2/data/:account_owner_name/:app_link_name/form/:form_link_name",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "account_owner_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "app_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "form_link_name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline",
+              "accessTokenUrl": "https://accounts.zoho.com/oauth/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "This API adds one or more records to a form in your Zoho Creator application. Subject to validations, each JSON object in the input file will be added as a record. A maximum of 200 records can be created per request."
+        },
+        {
+          "info": {
+            "name": "Get Record Detail View",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://zohoapis.com/creator/v2/data/:account_owner_name/:app_link_name/report/:report_link_name/:record_ID",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "account_owner_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "app_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "report_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "record_ID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline",
+              "accessTokenUrl": "https://accounts.zoho.com/oauth/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "This API fetches the data displayed in the detail view of a record, which is identified by the ID value passed. This API will not fetch the records displayed in the related data blocks of the detail view."
+        },
+        {
+          "info": {
+            "name": "Update Record by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://zohoapis.com/creator/v2/data/:account_owner_name/:app_link_name/report/:report_link_name/:record_ID",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "account_owner_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "app_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "report_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "record_ID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline",
+              "accessTokenUrl": "https://accounts.zoho.com/oauth/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "This API updates a specific record displayed in a report of a Zoho Creator application. The record is identified by its ID value. The update operation is subject to data validations configured for the corresponding form."
+        },
+        {
+          "info": {
+            "name": "Delete Record by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://zohoapis.com/creator/v2/data/:account_owner_name/:app_link_name/report/:report_link_name/:record_ID",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "account_owner_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "app_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "report_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "record_ID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline",
+              "accessTokenUrl": "https://accounts.zoho.com/oauth/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "This API deletes a specific record, identified by its ID value, which is displayed in a report of your Zoho Creator application. The delete request is subject to custom validations configured for the target form."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

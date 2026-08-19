@@ -1,0 +1,156 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zoho Creator API v2 conforming OpenAPI Specification Bulk Insert APIs Publish APIs API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Publish APIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Publish API Get Record Detail View",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://zohoapis.com/creator/v2/publish/:account_owner_name/:app_link_name/report/:report_link_name/:record_ID",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "account_owner_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "app_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "report_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "record_ID",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "privatelink",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "This API fetches the data displayed in the detail view of a record, which is identified by the ID value passed. This API will not fetch the records displayed in the related data blocks of the detail view."
+        },
+        {
+          "info": {
+            "name": "Publish API Get Records Quick View",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://zohoapis.com/creator/v2/publish/:account_owner_name/:app_link_name/report/:report_link_name",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "account_owner_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "app_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "report_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "privatelink",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "criteria",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "This API fetches the records displayed by a report of a Zoho Creator application. Its response will contain the data from the fields displayed in the report's quick view. A maximum of 200 records can be fetched per request."
+        },
+        {
+          "info": {
+            "name": "Publish API Add Records",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://zohoapis.com/creator/v2/publish/:account_owner_name/:app_link_name/form/:form_link_name",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "account_owner_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "app_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "form_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "privatelink",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This API adds one or more records to a form in your Zoho Creator application. Subject to validations, each JSON object in the input file will be added as a record. A maximum of 200 records can be created per request."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

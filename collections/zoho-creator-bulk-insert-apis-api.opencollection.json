@@ -1,0 +1,229 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zoho Creator API v2 conforming OpenAPI Specification Bulk Insert APIs API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bulk Insert APIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Download Bulk Insert Result",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://zohoapis.com/creator/v2/bulk/:account_owner_name/:app_link_name/form/:form_link_name/insert/:job_ID/result",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "account_owner_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "app_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "form_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "job_ID",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline",
+              "accessTokenUrl": "https://accounts.zoho.com/oauth/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "To download the bulk insert job result as a CSV file. The file is returned in .zip format. Use the filter parameter to specify the result type: success, failure, or unprocessed."
+        },
+        {
+          "info": {
+            "name": "Upload Bulk Insert File",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://zohoapis.com/creator/v2/bulk/:account_owner_name/:app_link_name/form/:form_link_name/insert",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "account_owner_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "app_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "form_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "job_id",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline",
+              "accessTokenUrl": "https://accounts.zoho.com/oauth/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "To upload a CSV file for the bulk insert job. The file must be a CSV or a ZIP containing a single CSV file. Pass the job_id as a query parameter."
+        },
+        {
+          "info": {
+            "name": "Get the Status of the Bulk Insert Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://zohoapis.com/creator/v2/bulk/:account_owner_name/:app_link_name/form/:form_link_name/insert/:job_ID",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "account_owner_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "app_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "form_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "job_ID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline",
+              "accessTokenUrl": "https://accounts.zoho.com/oauth/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "To get the details and status of a bulk insert job performed previously."
+        },
+        {
+          "info": {
+            "name": "Start or Abort Bulk Insert Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://zohoapis.com/creator/v2/bulk/:account_owner_name/:app_link_name/form/:form_link_name/insert/:job_ID",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "account_owner_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "app_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "form_link_name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "job_ID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline",
+              "accessTokenUrl": "https://accounts.zoho.com/oauth/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "To start or abort a bulk insert job. Pass the action as \"start\" or \"abort\" in the request body."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
