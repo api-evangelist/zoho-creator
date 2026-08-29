@@ -1,6 +1,18 @@
 aid: zoho-creator
 name: Zoho Creator
 description: Zoho Creator is a low-code application development platform with a REST API for managing forms, records, reports, workflows, and custom application data. The API enables developers to perform CRUD operations on application data, upload and download files, retrieve metadata about forms and reports, execute custom server-side functions, and build custom API endpoints. It uses OAuth 2.0 for authentication and supports Data APIs, Publish APIs, File APIs, Meta APIs, Bulk Read APIs, and Custom APIs with an OpenAPI 3.0 specification available for download.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
