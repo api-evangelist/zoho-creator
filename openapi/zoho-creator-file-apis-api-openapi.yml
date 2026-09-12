@@ -1,11 +1,11 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   contact:
     name: Zoho Creator Support
     url: https://www.zoho.com/creator/help/
     email: support@zohocreator.com
   description: Zoho Creator provides RESTful APIs that allow you to securely interface with your Zoho Creator applications and perform a variety of tasks.
-  title: Zoho Creator API v2 conforming OpenAPI Specification Bulk Insert APIs File APIs API
+  title: Zoho Creator API v2 conforming OpenAPI Specification Bulk Insert File APIs API
   version: '2.0'
 servers:
 - description: US Data Center API Server
@@ -121,13 +121,6 @@ paths:
       - File APIs
 components:
   responses:
-    download_file_from_subform_response:
-      description: '{''code'': 3190, ''message'': ''No record with ID RECORD_ID found.''}, {''code'': 3710, ''message'': ''No field named LINK_NAME found. Please check and try again.''}, {''code'': 3780, ''message'': ''No subform named LINK_NAME found. Please check and try again.''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
-      content:
-        '*/*':
-          schema:
-            format: binary
-            type: string
     upload_file_response:
       description: '{''code'': 3190, ''message'': ''No record with ID RECORD_ID found.''}, {''code'': 3710, ''message'': ''No field named LINK_NAME found. Please check and try again.''}, {''code'': 3830, ''message'': ''You do not have permission to transfer files to/from the field FIELD_NAME. Please check with the application admin.''}, {''code'': 3750, ''message'': ''LINK_NAME is not a file type field. Please check and try again.''}, {''code'': 3660, ''message'': ''No file found in the request. Please include a file and try again.''}, {''code'': 3630, ''message'': ''Input file exceeds the 50 MB limit. Please upload a smaller file.''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
       content:
@@ -158,26 +151,19 @@ components:
           schema:
             format: binary
             type: string
+    download_file_from_subform_response:
+      description: '{''code'': 3190, ''message'': ''No record with ID RECORD_ID found.''}, {''code'': 3710, ''message'': ''No field named LINK_NAME found. Please check and try again.''}, {''code'': 3780, ''message'': ''No subform named LINK_NAME found. Please check and try again.''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
+      content:
+        '*/*':
+          schema:
+            format: binary
+            type: string
   parameters:
-    account_owner_name:
-      schema:
-        type: string
-      in: path
-      name: account_owner_name
-      version: 2
-      required: true
     version:
       schema:
         type: string
       in: path
       name: version
-      version: 2
-      required: true
-    report_link_name:
-      schema:
-        type: string
-      in: path
-      name: report_link_name
       version: 2
       required: true
     subform_link_name:
@@ -187,13 +173,6 @@ components:
       name: subform_link_name
       version: 2
       required: true
-    subform_record_ID:
-      schema:
-        type: string
-      in: path
-      name: subform_record_ID
-      version: 2
-      required: true
     field_link_name:
       schema:
         type: string
@@ -201,18 +180,39 @@ components:
       name: field_link_name
       version: 2
       required: true
-    record_ID:
-      schema:
-        type: string
-      in: path
-      name: record_ID
-      version: 2
-      required: true
     app_link_name:
       schema:
         type: string
       in: path
       name: app_link_name
+      version: 2
+      required: true
+    account_owner_name:
+      schema:
+        type: string
+      in: path
+      name: account_owner_name
+      version: 2
+      required: true
+    report_link_name:
+      schema:
+        type: string
+      in: path
+      name: report_link_name
+      version: 2
+      required: true
+    subform_record_ID:
+      schema:
+        type: string
+      in: path
+      name: subform_record_ID
+      version: 2
+      required: true
+    record_ID:
+      schema:
+        type: string
+      in: path
+      name: record_ID
       version: 2
       required: true
   requestBodies:

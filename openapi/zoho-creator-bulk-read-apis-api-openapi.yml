@@ -1,11 +1,11 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   contact:
     name: Zoho Creator Support
     url: https://www.zoho.com/creator/help/
     email: support@zohocreator.com
   description: Zoho Creator provides RESTful APIs that allow you to securely interface with your Zoho Creator applications and perform a variety of tasks.
-  title: Zoho Creator API v2 conforming OpenAPI Specification Bulk Insert APIs Bulk Read APIs API
+  title: Zoho Creator API v2 conforming OpenAPI Specification Bulk Insert Bulk Read APIs API
   version: '2.0'
 servers:
 - description: US Data Center API Server
@@ -112,67 +112,6 @@ paths:
       tags:
       - Bulk Read APIs
 components:
-  parameters:
-    app_link_name:
-      schema:
-        type: string
-      in: path
-      name: app_link_name
-      version: 2
-      required: true
-    account_owner_name:
-      schema:
-        type: string
-      in: path
-      name: account_owner_name
-      version: 2
-      required: true
-    report_link_name:
-      schema:
-        type: string
-      in: path
-      name: report_link_name
-      version: 2
-      required: true
-    version:
-      schema:
-        type: string
-      in: path
-      name: version
-      version: 2
-      required: true
-    job_ID:
-      schema:
-        type: string
-      in: path
-      name: job_ID
-      version: 2
-      required: true
-  requestBodies:
-    create_bulk_read_job_request:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              query:
-                type: object
-                version: 2
-                properties:
-                  criteria:
-                    type: string
-                    example: Number==1
-                  max_records:
-                    format: int64
-                    maximum: 200000
-                    type: integer
-                    minimum: 100000
-                    example: 150000
-                  fields:
-                    type: array
-                    items:
-                      type: string
-                    example: '["Number","Single_Line","Radio","Date","Checkbox"]'
   responses:
     get_the_status_of_the_bulk_read_job_response:
       description: '{''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
@@ -249,6 +188,67 @@ components:
                   status:
                     type: string
                     example: In-progress
+  parameters:
+    job_ID:
+      schema:
+        type: string
+      in: path
+      name: job_ID
+      version: 2
+      required: true
+    version:
+      schema:
+        type: string
+      in: path
+      name: version
+      version: 2
+      required: true
+    report_link_name:
+      schema:
+        type: string
+      in: path
+      name: report_link_name
+      version: 2
+      required: true
+    account_owner_name:
+      schema:
+        type: string
+      in: path
+      name: account_owner_name
+      version: 2
+      required: true
+    app_link_name:
+      schema:
+        type: string
+      in: path
+      name: app_link_name
+      version: 2
+      required: true
+  requestBodies:
+    create_bulk_read_job_request:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              query:
+                type: object
+                version: 2
+                properties:
+                  criteria:
+                    type: string
+                    example: Number==1
+                  max_records:
+                    format: int64
+                    maximum: 200000
+                    type: integer
+                    minimum: 100000
+                    example: 150000
+                  fields:
+                    type: array
+                    items:
+                      type: string
+                    example: '["Number","Single_Line","Radio","Date","Checkbox"]'
   securitySchemes:
     oauth2:
       flows:
