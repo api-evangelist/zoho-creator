@@ -76,6 +76,8 @@ apis:
   humanURL: https://www.zoho.com/creator/help/api/v2.1/
   baseURL: https://creator.zoho.com/api/v2.1/
   tags:
+  - Data API
+  tags_raw:
   - Data APIs
   properties:
   - type: OpenAPI
