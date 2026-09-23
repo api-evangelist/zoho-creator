@@ -5,7 +5,7 @@ info:
     url: https://www.zoho.com/creator/help/
     email: support@zohocreator.com
   description: Zoho Creator provides RESTful APIs that allow you to securely interface with your Zoho Creator applications and perform a variety of tasks.
-  title: Zoho Creator API v2 conforming OpenAPI Specification Bulk Insert Publish APIs API
+  title: Zoho Creator API v2 conforming OpenAPI Specification…
   version: '2.0'
 servers:
 - description: US Data Center API Server
@@ -54,6 +54,8 @@ paths:
       - $ref: '#/components/parameters/privatelink'
       tags:
       - Publish APIs
+      operationId: getCreatorV2PublishByAccountOwnerNameByAppLinkNameReportByReportLinkNameByRecordID
+      x-operation-id-source: derived
   /creator/v2/publish/{account_owner_name}/{app_link_name}/report/{report_link_name}:
     get:
       summary: Publish API Get Records Quick View
@@ -82,6 +84,8 @@ paths:
       - $ref: '#/components/parameters/criteria'
       tags:
       - Publish APIs
+      operationId: getCreatorV2PublishByAccountOwnerNameByAppLinkNameReportByReportLinkName
+      x-operation-id-source: derived
   /creator/v2/publish/{account_owner_name}/{app_link_name}/form/{form_link_name}:
     post:
       summary: Publish API Add Records
@@ -111,15 +115,10 @@ paths:
       - $ref: '#/components/parameters/privatelink'
       tags:
       - Publish APIs
+      operationId: postCreatorV2PublishByAccountOwnerNameByAppLinkNameFormByFormLinkName
+      x-operation-id-source: derived
 components:
   parameters:
-    form_link_name:
-      schema:
-        type: string
-      in: path
-      name: form_link_name
-      version: 2
-      required: true
     version:
       schema:
         type: string
@@ -127,41 +126,11 @@ components:
       name: version
       version: 2
       required: true
-    account_owner_name:
+    record_ID:
       schema:
         type: string
       in: path
-      name: account_owner_name
-      version: 2
-      required: true
-    app_link_name:
-      schema:
-        type: string
-      in: path
-      name: app_link_name
-      version: 2
-      required: true
-    report_link_name:
-      schema:
-        type: string
-      in: path
-      name: report_link_name
-      version: 2
-      required: true
-    from:
-      schema:
-        format: int32
-        type: integer
-        minimum: 1
-      in: query
-      name: from
-      version: 2
-      required: false
-    privatelink:
-      schema:
-        type: string
-      in: query
-      name: privatelink
+      name: record_ID
       version: 2
       required: true
     limit:
@@ -173,11 +142,48 @@ components:
       name: limit
       version: 2
       required: false
-    record_ID:
+    app_link_name:
       schema:
         type: string
       in: path
-      name: record_ID
+      name: app_link_name
+      version: 2
+      required: true
+    from:
+      schema:
+        format: int32
+        type: integer
+        minimum: 1
+      in: query
+      name: from
+      version: 2
+      required: false
+    account_owner_name:
+      schema:
+        type: string
+      in: path
+      name: account_owner_name
+      version: 2
+      required: true
+    report_link_name:
+      schema:
+        type: string
+      in: path
+      name: report_link_name
+      version: 2
+      required: true
+    form_link_name:
+      schema:
+        type: string
+      in: path
+      name: form_link_name
+      version: 2
+      required: true
+    privatelink:
+      schema:
+        type: string
+      in: query
+      name: privatelink
       version: 2
       required: true
     criteria:
@@ -188,22 +194,6 @@ components:
       version: 2
       required: false
   responses:
-    publish_api_get_records_quick_view_response:
-      description: '{''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              code:
-                format: int32
-                type: integer
-                example: 3000
-              data:
-                type: array
-                items:
-                  type: object
-                example: '[{"Multi_Line":"Multiples\nLines\nof Text","Email":"p.boyle@zylker.com","Phone_Number":"+15704961113"},{"Multi_Line":"Multiples\nLines\nof Text","Email":"jason@zylker.com","Phone_Number":"+15704961113"}]'
     publish_api_add_records_response:
       description: '{''code'': 3950, ''message'': ''A maximum of 200 records can be added per request.''}, {''code'': 3070, ''message'': ''Data validation failure: [ARRAY]''}, {''code'': 3060, ''message'': ''Account''s record limit has been reached. Please upgrade to add more data.''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
       content:
@@ -241,6 +231,22 @@ components:
                 format: int32
                 type: integer
                 example: 3000
+    publish_api_get_records_quick_view_response:
+      description: '{''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                format: int32
+                type: integer
+                example: 3000
+              data:
+                type: array
+                items:
+                  type: object
+                example: '[{"Multi_Line":"Multiples\nLines\nof Text","Email":"p.boyle@zylker.com","Phone_Number":"+15704961113"},{"Multi_Line":"Multiples\nLines\nof Text","Email":"jason@zylker.com","Phone_Number":"+15704961113"}]'
     publish_api_get_record_detail_view_response:
       description: '{''code'': 3190, ''message'': ''No record with ID RECORD_ID found.''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
       content:

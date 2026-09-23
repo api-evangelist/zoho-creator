@@ -5,7 +5,7 @@ info:
     url: https://www.zoho.com/creator/help/
     email: support@zohocreator.com
   description: Zoho Creator provides RESTful APIs that allow you to securely interface with your Zoho Creator applications and perform a variety of tasks.
-  title: Zoho Creator API v2 conforming OpenAPI Specification Bulk Insert Meta APIs API
+  title: Zoho Creator API v2 conforming OpenAPI Specification Meta…
   version: '2.0'
 servers:
 - description: US Data Center API Server
@@ -54,6 +54,8 @@ paths:
       - $ref: '#/components/parameters/app_link_name'
       tags:
       - Meta APIs
+      operationId: getCreatorV2MetaByAccountOwnerNameByAppLinkNameSections
+      x-operation-id-source: derived
   /creator/v2/meta/{account_owner_name}/{app_link_name}/form/{form_link_name}/fields:
     get:
       summary: Get Fields
@@ -81,6 +83,8 @@ paths:
       - $ref: '#/components/parameters/form_link_name'
       tags:
       - Meta APIs
+      operationId: getCreatorV2MetaByAccountOwnerNameByAppLinkNameFormByFormLinkNameFields
+      x-operation-id-source: derived
   /creator/v2/meta/{account_owner_name}/{app_link_name}/reports:
     get:
       summary: Get Reports
@@ -107,6 +111,8 @@ paths:
       - $ref: '#/components/parameters/app_link_name'
       tags:
       - Meta APIs
+      operationId: getCreatorV2MetaByAccountOwnerNameByAppLinkNameReports
+      x-operation-id-source: derived
   /creator/v2/meta/{account_owner_name}/{app_link_name}/pages:
     get:
       summary: Get Pages
@@ -133,6 +139,8 @@ paths:
       - $ref: '#/components/parameters/app_link_name'
       tags:
       - Meta APIs
+      operationId: getCreatorV2MetaByAccountOwnerNameByAppLinkNamePages
+      x-operation-id-source: derived
   /creator/v2/meta/applications:
     get:
       summary: Get Applications
@@ -155,6 +163,8 @@ paths:
       - $ref: '#/components/parameters/version'
       tags:
       - Meta APIs
+      operationId: getCreatorV2MetaApplications
+      x-operation-id-source: derived
   /creator/v2/meta/{account_owner_name}/applications:
     get:
       summary: Get Applications by Workspace
@@ -178,6 +188,8 @@ paths:
       - $ref: '#/components/parameters/account_owner_name'
       tags:
       - Meta APIs
+      operationId: getCreatorV2MetaByAccountOwnerNameApplications
+      x-operation-id-source: derived
   /creator/v2/meta/{account_owner_name}/{app_link_name}/forms:
     get:
       summary: Get Forms
@@ -204,8 +216,123 @@ paths:
       - $ref: '#/components/parameters/app_link_name'
       tags:
       - Meta APIs
+      operationId: getCreatorV2MetaByAccountOwnerNameByAppLinkNameForms
+      x-operation-id-source: derived
 components:
   responses:
+    get_applications_response:
+      description: '{''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                format: int32
+                type: integer
+                example: 3000
+              applications:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    application_name:
+                      type: string
+                    date_format:
+                      type: string
+                    creation_date:
+                      type: string
+                    link_name:
+                      type: string
+                    category:
+                      format: int32
+                      type: integer
+                    time_zone:
+                      type: string
+                    created_by:
+                      type: string
+                    workspace_name:
+                      type: string
+                example: '[{"application_name":"Zylker Store","date_format":"MMM dd,yyyy","creation_date":"20-Apr-2020 16:23:50","link_name":"zylker-store","category":1,"time_zone":"SystemV/PST8","created_by":"jason18","workspace_name":"jason18"},{"application_name":"Zylker Self-Service","date_format":"MM-dd-yyyy","creation_date":"30-Sep-2019 02:21:51","link_name":"zylker-self-service","category":2,"time_zone":"America/Los_Angeles","created_by":"","workspace_name":"megan"}]'
+    get_reports_response:
+      description: '{''code'': 3930, ''message'': ''No reports available.''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              reports:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    display_name:
+                      type: string
+                    link_name:
+                      type: string
+                    type:
+                      format: int32
+                      type: integer
+                example: '[{"display_name":"Map Report","link_name":"Map_Report","type":5},{"display_name":"Spreadsheet Report","link_name":"Spreadsheet_Report","type":6}]'
+              code:
+                format: int32
+                type: integer
+                example: 3000
+    get_forms_response:
+      description: '{''code'': 3910, ''message'': ''No forms available.''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                format: int32
+                type: integer
+                example: 3000
+              forms:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    display_name:
+                      type: string
+                    link_name:
+                      type: string
+                    type:
+                      format: int32
+                      type: integer
+                example: '[{"display_name":"Add Order","link_name":"Order_Form","type":1},{"display_name":"Order Stateless Form","link_name":"Order_Stateless_Form","type":2}]'
+    get_fields_response:
+      description: '{''code'': 3910, ''message'': ''No forms available.''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                format: int32
+                type: integer
+                example: 3000
+              fields:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    unique:
+                      type: boolean
+                    max_char:
+                      format: int32
+                      type: integer
+                    display_name:
+                      type: string
+                    link_name:
+                      type: string
+                    type:
+                      format: int32
+                      type: integer
+                    mandatory:
+                      type: boolean
+                example: '[{"unique":false,"max_char":255,"display_name":"Name","link_name":"Name","type":29,"mandatory":false},{"unique":true,"max_char":255,"display_name":"Email","link_name":"Email","type":3,"mandatory":false}]'
     get_applications_by_workspace_response:
       description: '{''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
       content:
@@ -261,95 +388,6 @@ components:
                     link_name:
                       type: string
                 example: '[{"display_name":"Assets Dashboard","link_name":"Asset_Dashboard"},{"display_name":"Home","link_name":"Home_Page"}]'
-    get_fields_response:
-      description: '{''code'': 3910, ''message'': ''No forms available.''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              code:
-                format: int32
-                type: integer
-                example: 3000
-              fields:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    unique:
-                      type: boolean
-                    max_char:
-                      format: int32
-                      type: integer
-                    display_name:
-                      type: string
-                    link_name:
-                      type: string
-                    type:
-                      format: int32
-                      type: integer
-                    mandatory:
-                      type: boolean
-                example: '[{"unique":false,"max_char":255,"display_name":"Name","link_name":"Name","type":29,"mandatory":false},{"unique":true,"max_char":255,"display_name":"Email","link_name":"Email","type":3,"mandatory":false}]'
-    get_reports_response:
-      description: '{''code'': 3930, ''message'': ''No reports available.''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              reports:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    display_name:
-                      type: string
-                    link_name:
-                      type: string
-                    type:
-                      format: int32
-                      type: integer
-                example: '[{"display_name":"Map Report","link_name":"Map_Report","type":5},{"display_name":"Spreadsheet Report","link_name":"Spreadsheet_Report","type":6}]'
-              code:
-                format: int32
-                type: integer
-                example: 3000
-    get_applications_response:
-      description: '{''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              code:
-                format: int32
-                type: integer
-                example: 3000
-              applications:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    application_name:
-                      type: string
-                    date_format:
-                      type: string
-                    creation_date:
-                      type: string
-                    link_name:
-                      type: string
-                    category:
-                      format: int32
-                      type: integer
-                    time_zone:
-                      type: string
-                    created_by:
-                      type: string
-                    workspace_name:
-                      type: string
-                example: '[{"application_name":"Zylker Store","date_format":"MMM dd,yyyy","creation_date":"20-Apr-2020 16:23:50","link_name":"zylker-store","category":1,"time_zone":"SystemV/PST8","created_by":"jason18","workspace_name":"jason18"},{"application_name":"Zylker Self-Service","date_format":"MM-dd-yyyy","creation_date":"30-Sep-2019 02:21:51","link_name":"zylker-self-service","category":2,"time_zone":"America/Los_Angeles","created_by":"","workspace_name":"megan"}]'
     get_sections_response:
       description: '{''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
       content:
@@ -386,43 +424,19 @@ components:
                     link_name:
                       type: string
                 example: '[{"components":[{"page_type":2,"type":3,"link_name":"Dashboard","display_name":"Dashboard"}],"display_name":"Dashboard","link_name":"Dashboard"},{"components":[{"view_type":1,"type":2,"link_name":"All_Order_Line_Items","display_name":"All Order Line Items"},{"view_type":1,"type":2,"link_name":"All_Orders","display_name":"All Orders"}],"display_name":"Orders","link_name":"Orders1"}]'
-    get_forms_response:
-      description: '{''code'': 3910, ''message'': ''No forms available.''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              code:
-                format: int32
-                type: integer
-                example: 3000
-              forms:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    display_name:
-                      type: string
-                    link_name:
-                      type: string
-                    type:
-                      format: int32
-                      type: integer
-                example: '[{"display_name":"Add Order","link_name":"Order_Form","type":1},{"display_name":"Order Stateless Form","link_name":"Order_Stateless_Form","type":2}]'
   parameters:
-    form_link_name:
-      schema:
-        type: string
-      in: path
-      name: form_link_name
-      version: 2
-      required: true
     version:
       schema:
         type: string
       in: path
       name: version
+      version: 2
+      required: true
+    app_link_name:
+      schema:
+        type: string
+      in: path
+      name: app_link_name
       version: 2
       required: true
     account_owner_name:
@@ -432,11 +446,11 @@ components:
       name: account_owner_name
       version: 2
       required: true
-    app_link_name:
+    form_link_name:
       schema:
         type: string
       in: path
-      name: app_link_name
+      name: form_link_name
       version: 2
       required: true
   securitySchemes:

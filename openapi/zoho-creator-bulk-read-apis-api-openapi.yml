@@ -5,7 +5,7 @@ info:
     url: https://www.zoho.com/creator/help/
     email: support@zohocreator.com
   description: Zoho Creator provides RESTful APIs that allow you to securely interface with your Zoho Creator applications and perform a variety of tasks.
-  title: Zoho Creator API v2 conforming OpenAPI Specification Bulk Insert Bulk Read APIs API
+  title: Zoho Creator API v2 conforming OpenAPI Specification Bulk…
   version: '2.0'
 servers:
 - description: US Data Center API Server
@@ -59,6 +59,8 @@ paths:
       - $ref: '#/components/parameters/report_link_name'
       tags:
       - Bulk Read APIs
+      operationId: postCreatorV2BulkByAccountOwnerNameByAppLinkNameReportByReportLinkNameRead
+      x-operation-id-source: derived
   /creator/v2/bulk/{account_owner_name}/{app_link_name}/report/{report_link_name}/read/{job_ID}/result:
     get:
       summary: Download Bulk Read Result
@@ -85,6 +87,8 @@ paths:
       - $ref: '#/components/parameters/job_ID'
       tags:
       - Bulk Read APIs
+      operationId: getCreatorV2BulkByAccountOwnerNameByAppLinkNameReportByReportLinkNameReadByJobIDResult
+      x-operation-id-source: derived
   /creator/v2/bulk/{account_owner_name}/{app_link_name}/report/{report_link_name}/read/{job_ID}:
     get:
       summary: Get the Status of the Bulk Read Job
@@ -111,7 +115,45 @@ paths:
       - $ref: '#/components/parameters/job_ID'
       tags:
       - Bulk Read APIs
+      operationId: getCreatorV2BulkByAccountOwnerNameByAppLinkNameReportByReportLinkNameReadByJobID
+      x-operation-id-source: derived
 components:
+  parameters:
+    version:
+      schema:
+        type: string
+      in: path
+      name: version
+      version: 2
+      required: true
+    app_link_name:
+      schema:
+        type: string
+      in: path
+      name: app_link_name
+      version: 2
+      required: true
+    account_owner_name:
+      schema:
+        type: string
+      in: path
+      name: account_owner_name
+      version: 2
+      required: true
+    report_link_name:
+      schema:
+        type: string
+      in: path
+      name: report_link_name
+      version: 2
+      required: true
+    job_ID:
+      schema:
+        type: string
+      in: path
+      name: job_ID
+      version: 2
+      required: true
   responses:
     get_the_status_of_the_bulk_read_job_response:
       description: '{''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
@@ -188,42 +230,6 @@ components:
                   status:
                     type: string
                     example: In-progress
-  parameters:
-    job_ID:
-      schema:
-        type: string
-      in: path
-      name: job_ID
-      version: 2
-      required: true
-    version:
-      schema:
-        type: string
-      in: path
-      name: version
-      version: 2
-      required: true
-    report_link_name:
-      schema:
-        type: string
-      in: path
-      name: report_link_name
-      version: 2
-      required: true
-    account_owner_name:
-      schema:
-        type: string
-      in: path
-      name: account_owner_name
-      version: 2
-      required: true
-    app_link_name:
-      schema:
-        type: string
-      in: path
-      name: app_link_name
-      version: 2
-      required: true
   requestBodies:
     create_bulk_read_job_request:
       content:

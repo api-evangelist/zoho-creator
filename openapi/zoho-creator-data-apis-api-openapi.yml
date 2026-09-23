@@ -5,7 +5,7 @@ info:
     url: https://www.zoho.com/creator/help/
     email: support@zohocreator.com
   description: Zoho Creator provides RESTful APIs that allow you to securely interface with your Zoho Creator applications and perform a variety of tasks.
-  title: Zoho Creator API v2 conforming OpenAPI Specification Bulk Insert Data APIs API
+  title: Zoho Creator API v2 conforming OpenAPI Specification Data…
   version: '2.0'
 servers:
 - description: US Data Center API Server
@@ -60,6 +60,8 @@ paths:
       - $ref: '#/components/parameters/process_until_limit'
       tags:
       - Data APIs
+      operationId: patchCreatorV2DataByAccountOwnerNameByAppLinkNameReportByReportLinkName
+      x-operation-id-source: derived
     get:
       summary: Get Records Quick View
       security:
@@ -89,6 +91,8 @@ paths:
       - $ref: '#/components/parameters/criteria'
       tags:
       - Data APIs
+      operationId: getCreatorV2DataByAccountOwnerNameByAppLinkNameReportByReportLinkName
+      x-operation-id-source: derived
     delete:
       summary: Delete Records
       security:
@@ -120,6 +124,8 @@ paths:
       - $ref: '#/components/parameters/process_until_limit'
       tags:
       - Data APIs
+      operationId: deleteCreatorV2DataByAccountOwnerNameByAppLinkNameReportByReportLinkName
+      x-operation-id-source: derived
   /creator/v2/data/{account_owner_name}/{app_link_name}/form/{form_link_name}:
     post:
       summary: Add Records
@@ -151,6 +157,8 @@ paths:
       - $ref: '#/components/parameters/form_link_name'
       tags:
       - Data APIs
+      operationId: postCreatorV2DataByAccountOwnerNameByAppLinkNameFormByFormLinkName
+      x-operation-id-source: derived
   /creator/v2/data/{account_owner_name}/{app_link_name}/report/{report_link_name}/{record_ID}:
     patch:
       summary: Update Record by ID
@@ -183,6 +191,8 @@ paths:
       - $ref: '#/components/parameters/record_ID'
       tags:
       - Data APIs
+      operationId: patchCreatorV2DataByAccountOwnerNameByAppLinkNameReportByReportLinkNameByRecordID
+      x-operation-id-source: derived
     get:
       summary: Get Record Detail View
       security:
@@ -210,6 +220,8 @@ paths:
       - $ref: '#/components/parameters/record_ID'
       tags:
       - Data APIs
+      operationId: getCreatorV2DataByAccountOwnerNameByAppLinkNameReportByReportLinkNameByRecordID
+      x-operation-id-source: derived
     delete:
       summary: Delete Record by ID
       security:
@@ -239,156 +251,10 @@ paths:
       - $ref: '#/components/parameters/record_ID'
       tags:
       - Data APIs
+      operationId: deleteCreatorV2DataByAccountOwnerNameByAppLinkNameReportByReportLinkNameByRecordID
+      x-operation-id-source: derived
 components:
   responses:
-    add_records_response:
-      description: '{''code'': 3950, ''message'': ''A maximum of 200 records can be added per request.''}, {''code'': 3070, ''message'': ''Data validation failure: [ARRAY]''}, {''code'': 3060, ''message'': ''Account''s record limit has been reached. Please upgrade to add more data.''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              result:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    code:
-                      format: int32
-                      type: integer
-                    data:
-                      type: object
-                      properties:
-                        ID:
-                          type: string
-                    message:
-                      type: string
-                    tasks:
-                      type: object
-                      properties:
-                        openurl:
-                          type: object
-                          properties:
-                            type:
-                              type: string
-                            url:
-                              type: string
-                example: '[{"code":3000,"data":{"Email":"jason@zylker.com","Phone_Number":"+16103948336","ID":"3888833000000121319"},"message":"Data Added Successfully!","tasks":{"openurl":{"type":"Same window","url":"#Report:All_Orders"}}},{"code":3000,"data":{"Email":"p.boyle@zylker.com","Phone_Number":"+12096173907","ID":"3888833000000121339"},"message":"Data Added Successfully!","tasks":{"openurl":{"type":"Same window","url":"#Report:All_Orders"}}}]'
-              code:
-                format: int32
-                type: integer
-                example: 3000
-    update_record_by_id_response:
-      description: '{''code'': 3190, ''message'': ''No record with ID RECORD_ID found.''}, {''code'': 3070, ''message'': ''Data validation failure: [ARRAY]''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              code:
-                format: int32
-                type: integer
-                example: 3000
-              data:
-                type: object
-                properties:
-                  ID:
-                    type: string
-                example: '{"Email":"jake@zylker.com","Phone_Number":"+15876786783","ID":"3888833000000114027"}'
-              message:
-                type: string
-                example: Data Updated Successfully
-              tasks:
-                type: object
-                properties:
-                  openurl:
-                    type: object
-                    properties:
-                      type:
-                        type: string
-                        example: Same window
-                      url:
-                        type: string
-                        example: http://www.zylker.com
-    get_records_quick_view_response:
-      description: '{''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              code:
-                format: int32
-                type: integer
-                example: 3000
-              data:
-                type: array
-                items:
-                  type: object
-                example: '[{"Multi_Line":"Multiples\nLines\nof Text","Email":"p.boyle@zylker.com","Phone_Number":"+15704961113"},{"Multi_Line":"Multiples\nLines\nof Text","Email":"jason@zylker.com","Phone_Number":"+15704961113"}]'
-    delete_records_response:
-      description: '{''code'': 3960, ''message'': ''A maximum of 200 records can be processed per request. Include the process_until_limit parameter to process the first 200 records.''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              result:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    code:
-                      format: int32
-                      type: integer
-                    data:
-                      type: object
-                      properties:
-                        ID:
-                          format: int64
-                          type: integer
-                    message:
-                      type: string
-                example: '[{"code":3001,"data":{"ID":"3000000013011"},"error":["Failed to Delete Data."]},{"code":3000,"data":{"ID":"3000000015003"},"message":"Record Deleted Successfully!"}]'
-              code:
-                format: int32
-                type: integer
-                example: 3000
-    delete_record_by_id_response:
-      description: '{''code'': 3190, ''message'': ''No record with ID RECORD_ID found.''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              code:
-                format: int32
-                type: integer
-                example: 3000
-              data:
-                type: object
-                properties:
-                  ID:
-                    format: int64
-                    type: integer
-                    example: 3888833000000114027
-              message:
-                type: string
-                example: Record Deleted Successfully
-    get_record_detail_view_response:
-      description: '{''code'': 3190, ''message'': ''No record with ID RECORD_ID found.''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              code:
-                format: int32
-                type: integer
-                example: 3000
-              data:
-                type: object
-                example: '{"Multi_Line":"Multiples\nLines\nof Text","Email":"p.boyle@zylker.com","Phone_Number":"+15704961113"}'
     update_records_response:
       description: '{''code'': 3960, ''message'': ''A maximum of 200 records can be processed per request. Include the process_until_limit parameter to process the first 200 records.''}, {''code'': 3070, ''message'': ''Data validation failure: [ARRAY]''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
       content:
@@ -426,40 +292,160 @@ components:
                 format: int32
                 type: integer
                 example: 3000
+    get_records_quick_view_response:
+      description: '{''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                format: int32
+                type: integer
+                example: 3000
+              data:
+                type: array
+                items:
+                  type: object
+                example: '[{"Multi_Line":"Multiples\nLines\nof Text","Email":"p.boyle@zylker.com","Phone_Number":"+15704961113"},{"Multi_Line":"Multiples\nLines\nof Text","Email":"jason@zylker.com","Phone_Number":"+15704961113"}]'
+    get_record_detail_view_response:
+      description: '{''code'': 3190, ''message'': ''No record with ID RECORD_ID found.''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                format: int32
+                type: integer
+                example: 3000
+              data:
+                type: object
+                example: '{"Multi_Line":"Multiples\nLines\nof Text","Email":"p.boyle@zylker.com","Phone_Number":"+15704961113"}'
+    update_record_by_id_response:
+      description: '{''code'': 3190, ''message'': ''No record with ID RECORD_ID found.''}, {''code'': 3070, ''message'': ''Data validation failure: [ARRAY]''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                format: int32
+                type: integer
+                example: 3000
+              data:
+                type: object
+                properties:
+                  ID:
+                    type: string
+                example: '{"Email":"jake@zylker.com","Phone_Number":"+15876786783","ID":"3888833000000114027"}'
+              message:
+                type: string
+                example: Data Updated Successfully
+              tasks:
+                type: object
+                properties:
+                  openurl:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        example: Same window
+                      url:
+                        type: string
+                        example: http://www.zylker.com
+    delete_record_by_id_response:
+      description: '{''code'': 3190, ''message'': ''No record with ID RECORD_ID found.''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                format: int32
+                type: integer
+                example: 3000
+              data:
+                type: object
+                properties:
+                  ID:
+                    format: int64
+                    type: integer
+                    example: 3888833000000114027
+              message:
+                type: string
+                example: Record Deleted Successfully
+    delete_records_response:
+      description: '{''code'': 3960, ''message'': ''A maximum of 200 records can be processed per request. Include the process_until_limit parameter to process the first 200 records.''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              result:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    code:
+                      format: int32
+                      type: integer
+                    data:
+                      type: object
+                      properties:
+                        ID:
+                          format: int64
+                          type: integer
+                    message:
+                      type: string
+                example: '[{"code":3001,"data":{"ID":"3000000013011"},"error":["Failed to Delete Data."]},{"code":3000,"data":{"ID":"3000000015003"},"message":"Record Deleted Successfully!"}]'
+              code:
+                format: int32
+                type: integer
+                example: 3000
+    add_records_response:
+      description: '{''code'': 3950, ''message'': ''A maximum of 200 records can be added per request.''}, {''code'': 3070, ''message'': ''Data validation failure: [ARRAY]''}, {''code'': 3060, ''message'': ''Account''s record limit has been reached. Please upgrade to add more data.''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              result:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    code:
+                      format: int32
+                      type: integer
+                    data:
+                      type: object
+                      properties:
+                        ID:
+                          type: string
+                    message:
+                      type: string
+                    tasks:
+                      type: object
+                      properties:
+                        openurl:
+                          type: object
+                          properties:
+                            type:
+                              type: string
+                            url:
+                              type: string
+                example: '[{"code":3000,"data":{"Email":"jason@zylker.com","Phone_Number":"+16103948336","ID":"3888833000000121319"},"message":"Data Added Successfully!","tasks":{"openurl":{"type":"Same window","url":"#Report:All_Orders"}}},{"code":3000,"data":{"Email":"p.boyle@zylker.com","Phone_Number":"+12096173907","ID":"3888833000000121339"},"message":"Data Added Successfully!","tasks":{"openurl":{"type":"Same window","url":"#Report:All_Orders"}}}]'
+              code:
+                format: int32
+                type: integer
+                example: 3000
   parameters:
-    account_owner_name:
+    record_ID:
       schema:
         type: string
       in: path
-      name: account_owner_name
-      version: 2
-      required: true
-    app_link_name:
-      schema:
-        type: string
-      in: path
-      name: app_link_name
-      version: 2
-      required: true
-    process_until_limit:
-      schema:
-        type: boolean
-      in: query
-      name: process_until_limit
-      version: 2
-      required: false
-    report_link_name:
-      schema:
-        type: string
-      in: path
-      name: report_link_name
-      version: 2
-      required: true
-    form_link_name:
-      schema:
-        type: string
-      in: path
-      name: form_link_name
+      name: record_ID
       version: 2
       required: true
     limit:
@@ -471,20 +457,20 @@ components:
       name: limit
       version: 2
       required: false
-    record_ID:
+    account_owner_name:
       schema:
         type: string
       in: path
-      name: record_ID
+      name: account_owner_name
       version: 2
       required: true
-    criteria:
+    form_link_name:
       schema:
         type: string
-      in: query
-      name: criteria
+      in: path
+      name: form_link_name
       version: 2
-      required: false
+      required: true
     version:
       schema:
         type: string
@@ -501,7 +487,123 @@ components:
       name: from
       version: 2
       required: false
+    report_link_name:
+      schema:
+        type: string
+      in: path
+      name: report_link_name
+      version: 2
+      required: true
+    criteria:
+      schema:
+        type: string
+      in: query
+      name: criteria
+      version: 2
+      required: false
+    app_link_name:
+      schema:
+        type: string
+      in: path
+      name: app_link_name
+      version: 2
+      required: true
+    process_until_limit:
+      schema:
+        type: boolean
+      in: query
+      name: process_until_limit
+      version: 2
+      required: false
   requestBodies:
+    update_record_by_id_request:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              result:
+                type: object
+                version: 2
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      type: string
+                    example: '["Phone_Number","Email"]'
+                  message:
+                    type: boolean
+                    example: true
+                  tasks:
+                    type: boolean
+                    example: true
+              data:
+                type: object
+                version: 2
+                example: '{"Email":"jake@zylker.com","Phone_Number":"+15876786783"}'
+    add_records_request:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              result:
+                type: object
+                version: 2
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      type: string
+                    example: '["Phone_Number","Email"]'
+                  message:
+                    type: boolean
+                    example: true
+                  tasks:
+                    type: boolean
+                    example: true
+              data:
+                type: array
+                version: 2
+                items:
+                  type: object
+                example: '[{"Email":"jason@zylker.com","Phone_Number":"+16103948336"},{"Email":"p.boyle@zylker.com","Phone_Number":"+12096173907"}]'
+    delete_record_by_id_request:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              result:
+                type: object
+                version: 2
+                properties:
+                  message:
+                    type: boolean
+                    example: true
+                  tasks:
+                    type: boolean
+                    example: true
+    delete_records_request:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              result:
+                type: object
+                version: 2
+                properties:
+                  message:
+                    type: boolean
+                    example: true
+                  tasks:
+                    type: boolean
+                    example: true
+              criteria:
+                type: string
+                version: 2
+                example: (Single_Line.contains("Single Line of Text"))
     update_records_request:
       content:
         application/json:
@@ -531,94 +633,6 @@ components:
                 type: string
                 version: 2
                 example: (Single_Line.contains("Single Line of Text"))
-    add_records_request:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              result:
-                type: object
-                version: 2
-                properties:
-                  fields:
-                    type: array
-                    items:
-                      type: string
-                    example: '["Phone_Number","Email"]'
-                  message:
-                    type: boolean
-                    example: true
-                  tasks:
-                    type: boolean
-                    example: true
-              data:
-                type: array
-                version: 2
-                items:
-                  type: object
-                example: '[{"Email":"jason@zylker.com","Phone_Number":"+16103948336"},{"Email":"p.boyle@zylker.com","Phone_Number":"+12096173907"}]'
-    delete_records_request:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              result:
-                type: object
-                version: 2
-                properties:
-                  message:
-                    type: boolean
-                    example: true
-                  tasks:
-                    type: boolean
-                    example: true
-              criteria:
-                type: string
-                version: 2
-                example: (Single_Line.contains("Single Line of Text"))
-    delete_record_by_id_request:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              result:
-                type: object
-                version: 2
-                properties:
-                  message:
-                    type: boolean
-                    example: true
-                  tasks:
-                    type: boolean
-                    example: true
-    update_record_by_id_request:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              result:
-                type: object
-                version: 2
-                properties:
-                  fields:
-                    type: array
-                    items:
-                      type: string
-                    example: '["Phone_Number","Email"]'
-                  message:
-                    type: boolean
-                    example: true
-                  tasks:
-                    type: boolean
-                    example: true
-              data:
-                type: object
-                version: 2
-                example: '{"Email":"jake@zylker.com","Phone_Number":"+15876786783"}'
   securitySchemes:
     oauth2:
       flows:

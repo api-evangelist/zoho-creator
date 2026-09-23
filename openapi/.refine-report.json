@@ -1,12 +1,7 @@
 {
   "provider": "zoho-creator",
   "sources": [
-    "zoho-creator-bulk-insert-apis-api-openapi.yml",
-    "zoho-creator-bulk-read-apis-api-openapi.yml",
-    "zoho-creator-data-apis-api-openapi.yml",
-    "zoho-creator-file-apis-api-openapi.yml",
-    "zoho-creator-meta-apis-api-openapi.yml",
-    "zoho-creator-publish-apis-api-openapi.yml"
+    "_original/openapi.json"
   ],
   "outputs": [
     "zoho-creator-bulk-insert-apis-api-openapi.yml",
@@ -20,13 +15,16 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "zoho-creator-bulk-insert-apis-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "zoho-creator-bulk-read-apis-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "zoho-creator-data-apis-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "zoho-creator-file-apis-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "zoho-creator-meta-apis-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "zoho-creator-publish-apis-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "openapi.json: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "zoho-creator-bulk-insert-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zoho-creator-bulk-read-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zoho-creator-data-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zoho-creator-file-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zoho-creator-meta-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zoho-creator-publish-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
