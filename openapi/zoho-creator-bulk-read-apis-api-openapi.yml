@@ -118,42 +118,6 @@ paths:
       operationId: getCreatorV2BulkByAccountOwnerNameByAppLinkNameReportByReportLinkNameReadByJobID
       x-operation-id-source: derived
 components:
-  parameters:
-    version:
-      schema:
-        type: string
-      in: path
-      name: version
-      version: 2
-      required: true
-    app_link_name:
-      schema:
-        type: string
-      in: path
-      name: app_link_name
-      version: 2
-      required: true
-    account_owner_name:
-      schema:
-        type: string
-      in: path
-      name: account_owner_name
-      version: 2
-      required: true
-    report_link_name:
-      schema:
-        type: string
-      in: path
-      name: report_link_name
-      version: 2
-      required: true
-    job_ID:
-      schema:
-        type: string
-      in: path
-      name: job_ID
-      version: 2
-      required: true
   responses:
     get_the_status_of_the_bulk_read_job_response:
       description: '{''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
@@ -194,13 +158,6 @@ components:
                   status:
                     type: string
                     example: Completed
-    download_bulk_read_result_response:
-      description: '{''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
-      content:
-        '*/*':
-          schema:
-            format: binary
-            type: string
     create_bulk_read_job_response:
       description: '{''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
       content:
@@ -230,6 +187,49 @@ components:
                   status:
                     type: string
                     example: In-progress
+    download_bulk_read_result_response:
+      description: '{''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
+      content:
+        '*/*':
+          schema:
+            format: binary
+            type: string
+  parameters:
+    report_link_name:
+      schema:
+        type: string
+      in: path
+      name: report_link_name
+      version: 2
+      required: true
+    account_owner_name:
+      schema:
+        type: string
+      in: path
+      name: account_owner_name
+      version: 2
+      required: true
+    job_ID:
+      schema:
+        type: string
+      in: path
+      name: job_ID
+      version: 2
+      required: true
+    version:
+      schema:
+        type: string
+      in: path
+      name: version
+      version: 2
+      required: true
+    app_link_name:
+      schema:
+        type: string
+      in: path
+      name: app_link_name
+      version: 2
+      required: true
   requestBodies:
     create_bulk_read_job_request:
       content:

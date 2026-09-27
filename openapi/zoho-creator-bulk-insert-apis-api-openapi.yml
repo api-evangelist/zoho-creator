@@ -163,56 +163,6 @@ paths:
       operationId: putCreatorV2BulkByAccountOwnerNameByAppLinkNameFormByFormLinkNameInsertByJobID
       x-operation-id-source: derived
 components:
-  parameters:
-    version:
-      schema:
-        type: string
-      in: path
-      name: version
-      version: 2
-      required: true
-    app_link_name:
-      schema:
-        type: string
-      in: path
-      name: app_link_name
-      version: 2
-      required: true
-    filter:
-      schema:
-        type: string
-      in: query
-      name: filter
-      version: 2
-      required: false
-    job_id:
-      schema:
-        type: string
-      in: query
-      name: job_id
-      version: 2
-      required: false
-    account_owner_name:
-      schema:
-        type: string
-      in: path
-      name: account_owner_name
-      version: 2
-      required: true
-    form_link_name:
-      schema:
-        type: string
-      in: path
-      name: form_link_name
-      version: 2
-      required: true
-    job_ID:
-      schema:
-        type: string
-      in: path
-      name: job_ID
-      version: 2
-      required: true
   responses:
     start_or_abort_bulk_insert_job_response:
       description: '{''code'': 4070, ''message'': ''Permission Denied. Only admin or developer of this application can perform this operation.''}, {''code'': 7120, ''message'': ''The job ID JOB_ID provided in the request is not valid.''}, {''code'': 7130, ''message'': ''You are not permitted to access the job.''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
@@ -228,6 +178,13 @@ components:
               message:
                 type: string
                 example: Job started successfully
+    download_bulk_insert_result_response:
+      description: '{''code'': 4070, ''message'': ''Permission Denied. Only admin or developer of this application can perform this operation.''}, {''code'': 11110, ''message'': ''The result file is still being generated. Please try again after some time.''}, {''code'': 11120, ''message'': ''The result file is not available for download. The job is not in a completed state.''}, {''code'': 7120, ''message'': ''The job ID JOB_ID provided in the request is not valid.''}, {''code'': 7130, ''message'': ''You are not permitted to access the job.''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
+      content:
+        '*/*':
+          schema:
+            format: binary
+            type: string
     upload_bulk_insert_file_response:
       description: '{''code'': 4070, ''message'': ''Permission Denied. Only admin or developer of this application can perform this operation.''}, {''code'': 7120, ''message'': ''The job ID JOB_ID provided in the request is not valid.''}, {''code'': 7130, ''message'': ''You are not permitted to access the job.''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
       content:
@@ -278,13 +235,56 @@ components:
                     format: int64
                     type: integer
                     example: 490
-    download_bulk_insert_result_response:
-      description: '{''code'': 4070, ''message'': ''Permission Denied. Only admin or developer of this application can perform this operation.''}, {''code'': 11110, ''message'': ''The result file is still being generated. Please try again after some time.''}, {''code'': 11120, ''message'': ''The result file is not available for download. The job is not in a completed state.''}, {''code'': 7120, ''message'': ''The job ID JOB_ID provided in the request is not valid.''}, {''code'': 7130, ''message'': ''You are not permitted to access the job.''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
-      content:
-        '*/*':
-          schema:
-            format: binary
-            type: string
+  parameters:
+    form_link_name:
+      schema:
+        type: string
+      in: path
+      name: form_link_name
+      version: 2
+      required: true
+    account_owner_name:
+      schema:
+        type: string
+      in: path
+      name: account_owner_name
+      version: 2
+      required: true
+    job_ID:
+      schema:
+        type: string
+      in: path
+      name: job_ID
+      version: 2
+      required: true
+    filter:
+      schema:
+        type: string
+      in: query
+      name: filter
+      version: 2
+      required: false
+    version:
+      schema:
+        type: string
+      in: path
+      name: version
+      version: 2
+      required: true
+    job_id:
+      schema:
+        type: string
+      in: query
+      name: job_id
+      version: 2
+      required: false
+    app_link_name:
+      schema:
+        type: string
+      in: path
+      name: app_link_name
+      version: 2
+      required: true
   requestBodies:
     upload_bulk_insert_file_request:
       content:
