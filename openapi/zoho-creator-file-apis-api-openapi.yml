@@ -164,6 +164,63 @@ components:
           schema:
             format: binary
             type: string
+  parameters:
+    field_link_name:
+      schema:
+        type: string
+      in: path
+      name: field_link_name
+      version: 2
+      required: true
+    account_owner_name:
+      schema:
+        type: string
+      in: path
+      name: account_owner_name
+      version: 2
+      required: true
+    subform_link_name:
+      schema:
+        type: string
+      in: path
+      name: subform_link_name
+      version: 2
+      required: true
+    record_ID:
+      schema:
+        type: string
+      in: path
+      name: record_ID
+      version: 2
+      required: true
+    version:
+      schema:
+        type: string
+      in: path
+      name: version
+      version: 2
+      required: true
+    subform_record_ID:
+      schema:
+        type: string
+      in: path
+      name: subform_record_ID
+      version: 2
+      required: true
+    app_link_name:
+      schema:
+        type: string
+      in: path
+      name: app_link_name
+      version: 2
+      required: true
+    report_link_name:
+      schema:
+        type: string
+      in: path
+      name: report_link_name
+      version: 2
+      required: true
   requestBodies:
     upload_file_request:
       content:
@@ -174,63 +231,6 @@ components:
               file:
                 format: binary
                 type: string
-  parameters:
-    record_ID:
-      schema:
-        type: string
-      in: path
-      name: record_ID
-      version: 2
-      required: true
-    subform_link_name:
-      schema:
-        type: string
-      in: path
-      name: subform_link_name
-      version: 2
-      required: true
-    report_link_name:
-      schema:
-        type: string
-      in: path
-      name: report_link_name
-      version: 2
-      required: true
-    subform_record_ID:
-      schema:
-        type: string
-      in: path
-      name: subform_record_ID
-      version: 2
-      required: true
-    account_owner_name:
-      schema:
-        type: string
-      in: path
-      name: account_owner_name
-      version: 2
-      required: true
-    version:
-      schema:
-        type: string
-      in: path
-      name: version
-      version: 2
-      required: true
-    field_link_name:
-      schema:
-        type: string
-      in: path
-      name: field_link_name
-      version: 2
-      required: true
-    app_link_name:
-      schema:
-        type: string
-      in: path
-      name: app_link_name
-      version: 2
-      required: true
   securitySchemes:
     oauth2:
       flows:

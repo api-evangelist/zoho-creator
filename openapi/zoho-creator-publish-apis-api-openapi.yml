@@ -118,7 +118,98 @@ paths:
       operationId: postCreatorV2PublishByAccountOwnerNameByAppLinkNameFormByFormLinkName
       x-operation-id-source: derived
 components:
+  parameters:
+    limit:
+      schema:
+        format: int32
+        maximum: 200
+        type: integer
+      in: query
+      name: limit
+      version: 2
+      required: false
+    from:
+      schema:
+        format: int32
+        type: integer
+        minimum: 1
+      in: query
+      name: from
+      version: 2
+      required: false
+    privatelink:
+      schema:
+        type: string
+      in: query
+      name: privatelink
+      version: 2
+      required: true
+    form_link_name:
+      schema:
+        type: string
+      in: path
+      name: form_link_name
+      version: 2
+      required: true
+    account_owner_name:
+      schema:
+        type: string
+      in: path
+      name: account_owner_name
+      version: 2
+      required: true
+    criteria:
+      schema:
+        type: string
+      in: query
+      name: criteria
+      version: 2
+      required: false
+    record_ID:
+      schema:
+        type: string
+      in: path
+      name: record_ID
+      version: 2
+      required: true
+    version:
+      schema:
+        type: string
+      in: path
+      name: version
+      version: 2
+      required: true
+    app_link_name:
+      schema:
+        type: string
+      in: path
+      name: app_link_name
+      version: 2
+      required: true
+    report_link_name:
+      schema:
+        type: string
+      in: path
+      name: report_link_name
+      version: 2
+      required: true
   responses:
+    publish_api_get_records_quick_view_response:
+      description: '{''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                format: int32
+                type: integer
+                example: 3000
+              data:
+                type: array
+                items:
+                  type: object
+                example: '[{"Multi_Line":"Multiples\nLines\nof Text","Email":"p.boyle@zylker.com","Phone_Number":"+15704961113"},{"Multi_Line":"Multiples\nLines\nof Text","Email":"jason@zylker.com","Phone_Number":"+15704961113"}]'
     publish_api_add_records_response:
       description: '{''code'': 3950, ''message'': ''A maximum of 200 records can be added per request.''}, {''code'': 3070, ''message'': ''Data validation failure: [ARRAY]''}, {''code'': 3060, ''message'': ''Account''s record limit has been reached. Please upgrade to add more data.''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
       content:
@@ -170,97 +261,6 @@ components:
               data:
                 type: object
                 example: '{"Multi_Line":"Multiples\nLines\nof Text","Email":"p.boyle@zylker.com","Phone_Number":"+15704961113"}'
-    publish_api_get_records_quick_view_response:
-      description: '{''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              code:
-                format: int32
-                type: integer
-                example: 3000
-              data:
-                type: array
-                items:
-                  type: object
-                example: '[{"Multi_Line":"Multiples\nLines\nof Text","Email":"p.boyle@zylker.com","Phone_Number":"+15704961113"},{"Multi_Line":"Multiples\nLines\nof Text","Email":"jason@zylker.com","Phone_Number":"+15704961113"}]'
-  parameters:
-    form_link_name:
-      schema:
-        type: string
-      in: path
-      name: form_link_name
-      version: 2
-      required: true
-    record_ID:
-      schema:
-        type: string
-      in: path
-      name: record_ID
-      version: 2
-      required: true
-    report_link_name:
-      schema:
-        type: string
-      in: path
-      name: report_link_name
-      version: 2
-      required: true
-    account_owner_name:
-      schema:
-        type: string
-      in: path
-      name: account_owner_name
-      version: 2
-      required: true
-    criteria:
-      schema:
-        type: string
-      in: query
-      name: criteria
-      version: 2
-      required: false
-    privatelink:
-      schema:
-        type: string
-      in: query
-      name: privatelink
-      version: 2
-      required: true
-    version:
-      schema:
-        type: string
-      in: path
-      name: version
-      version: 2
-      required: true
-    limit:
-      schema:
-        format: int32
-        maximum: 200
-        type: integer
-      in: query
-      name: limit
-      version: 2
-      required: false
-    from:
-      schema:
-        format: int32
-        type: integer
-        minimum: 1
-      in: query
-      name: from
-      version: 2
-      required: false
-    app_link_name:
-      schema:
-        type: string
-      in: path
-      name: app_link_name
-      version: 2
-      required: true
   requestBodies:
     publish_api_add_records_request:
       content:
