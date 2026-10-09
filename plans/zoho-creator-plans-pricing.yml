@@ -1,3 +1,7 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (undated — the file carries no date and git cannot supply one), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
 name: Zoho Creator Plans and Pricing
 description: Pricing plans for Zoho Creator low-code application development platform
 url: https://www.zoho.com/creator/pricing.html
@@ -92,3 +96,48 @@ plans:
       - Developer API limit: 1000 calls/user/day
       - Custom API limit: 500 calls/user/day
       - Access to all Zoho applications
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - negotiated
+  - subscription
+  units: []
+  plans:
+  - name: Free Edition
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods: []
+  - name: Standard
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods: []
+  - name: Professional
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods: []
+  - name: Enterprise
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods: []
+  - name: Flex
+    access: other
+    model: negotiated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Zoho One
+    access: other
+    model: negotiated
+    model_how: derived
+    units: []
+    periods: []
