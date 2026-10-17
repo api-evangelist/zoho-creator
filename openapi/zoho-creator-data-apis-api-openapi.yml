@@ -255,13 +255,22 @@ paths:
       x-operation-id-source: derived
 components:
   parameters:
-    version:
+    app_link_name:
       schema:
         type: string
       in: path
-      name: version
+      name: app_link_name
       version: 2
       required: true
+    limit:
+      schema:
+        format: int32
+        maximum: 200
+        type: integer
+      in: query
+      name: limit
+      version: 2
+      required: false
     record_ID:
       schema:
         type: string
@@ -269,11 +278,32 @@ components:
       name: record_ID
       version: 2
       required: true
-    app_link_name:
+    report_link_name:
       schema:
         type: string
       in: path
-      name: app_link_name
+      name: report_link_name
+      version: 2
+      required: true
+    version:
+      schema:
+        type: string
+      in: path
+      name: version
+      version: 2
+      required: true
+    account_owner_name:
+      schema:
+        type: string
+      in: path
+      name: account_owner_name
+      version: 2
+      required: true
+    form_link_name:
+      schema:
+        type: string
+      in: path
+      name: form_link_name
       version: 2
       required: true
     criteria:
@@ -290,13 +320,6 @@ components:
       name: process_until_limit
       version: 2
       required: false
-    form_link_name:
-      schema:
-        type: string
-      in: path
-      name: form_link_name
-      version: 2
-      required: true
     from:
       schema:
         format: int32
@@ -306,31 +329,24 @@ components:
       name: from
       version: 2
       required: false
-    account_owner_name:
-      schema:
-        type: string
-      in: path
-      name: account_owner_name
-      version: 2
-      required: true
-    limit:
-      schema:
-        format: int32
-        maximum: 200
-        type: integer
-      in: query
-      name: limit
-      version: 2
-      required: false
-    report_link_name:
-      schema:
-        type: string
-      in: path
-      name: report_link_name
-      version: 2
-      required: true
   responses:
-    get_record_detail_view_response:
+    get_records_quick_view_response:
+      description: '{''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                format: int32
+                type: integer
+                example: 3000
+              data:
+                type: array
+                items:
+                  type: object
+                example: '[{"Multi_Line":"Multiples\nLines\nof Text","Email":"p.boyle@zylker.com","Phone_Number":"+15704961113"},{"Multi_Line":"Multiples\nLines\nof Text","Email":"jason@zylker.com","Phone_Number":"+15704961113"}]'
+    delete_record_by_id_response:
       description: '{''code'': 3190, ''message'': ''No record with ID RECORD_ID found.''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
       content:
         application/json:
@@ -343,35 +359,14 @@ components:
                 example: 3000
               data:
                 type: object
-                example: '{"Multi_Line":"Multiples\nLines\nof Text","Email":"p.boyle@zylker.com","Phone_Number":"+15704961113"}'
-    delete_records_response:
-      description: '{''code'': 3960, ''message'': ''A maximum of 200 records can be processed per request. Include the process_until_limit parameter to process the first 200 records.''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              result:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    code:
-                      format: int32
-                      type: integer
-                    data:
-                      type: object
-                      properties:
-                        ID:
-                          format: int64
-                          type: integer
-                    message:
-                      type: string
-                example: '[{"code":3001,"data":{"ID":"3000000013011"},"error":["Failed to Delete Data."]},{"code":3000,"data":{"ID":"3000000015003"},"message":"Record Deleted Successfully!"}]'
-              code:
-                format: int32
-                type: integer
-                example: 3000
+                properties:
+                  ID:
+                    format: int64
+                    type: integer
+                    example: 3888833000000114027
+              message:
+                type: string
+                example: Record Deleted Successfully
     update_record_by_id_response:
       description: '{''code'': 3190, ''message'': ''No record with ID RECORD_ID found.''}, {''code'': 3070, ''message'': ''Data validation failure: [ARRAY]''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
       content:
@@ -404,22 +399,6 @@ components:
                       url:
                         type: string
                         example: http://www.zylker.com
-    get_records_quick_view_response:
-      description: '{''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              code:
-                format: int32
-                type: integer
-                example: 3000
-              data:
-                type: array
-                items:
-                  type: object
-                example: '[{"Multi_Line":"Multiples\nLines\nof Text","Email":"p.boyle@zylker.com","Phone_Number":"+15704961113"},{"Multi_Line":"Multiples\nLines\nof Text","Email":"jason@zylker.com","Phone_Number":"+15704961113"}]'
     update_records_response:
       description: '{''code'': 3960, ''message'': ''A maximum of 200 records can be processed per request. Include the process_until_limit parameter to process the first 200 records.''}, {''code'': 3070, ''message'': ''Data validation failure: [ARRAY]''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
       content:
@@ -494,7 +473,35 @@ components:
                 format: int32
                 type: integer
                 example: 3000
-    delete_record_by_id_response:
+    delete_records_response:
+      description: '{''code'': 3960, ''message'': ''A maximum of 200 records can be processed per request. Include the process_until_limit parameter to process the first 200 records.''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              result:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    code:
+                      format: int32
+                      type: integer
+                    data:
+                      type: object
+                      properties:
+                        ID:
+                          format: int64
+                          type: integer
+                    message:
+                      type: string
+                example: '[{"code":3001,"data":{"ID":"3000000013011"},"error":["Failed to Delete Data."]},{"code":3000,"data":{"ID":"3000000015003"},"message":"Record Deleted Successfully!"}]'
+              code:
+                format: int32
+                type: integer
+                example: 3000
+    get_record_detail_view_response:
       description: '{''code'': 3190, ''message'': ''No record with ID RECORD_ID found.''}, {''code'': 4000, ''message'': ''Account''s Developer API limit has been reached. Please upgrade to execute more REST API calls.''}'
       content:
         application/json:
@@ -507,14 +514,7 @@ components:
                 example: 3000
               data:
                 type: object
-                properties:
-                  ID:
-                    format: int64
-                    type: integer
-                    example: 3888833000000114027
-              message:
-                type: string
-                example: Record Deleted Successfully
+                example: '{"Multi_Line":"Multiples\nLines\nof Text","Email":"p.boyle@zylker.com","Phone_Number":"+15704961113"}'
   requestBodies:
     update_record_by_id_request:
       content:
@@ -541,7 +541,7 @@ components:
                 type: object
                 version: 2
                 example: '{"Email":"jake@zylker.com","Phone_Number":"+15876786783"}'
-    add_records_request:
+    delete_records_request:
       content:
         application/json:
           schema:
@@ -551,23 +551,16 @@ components:
                 type: object
                 version: 2
                 properties:
-                  fields:
-                    type: array
-                    items:
-                      type: string
-                    example: '["Phone_Number","Email"]'
                   message:
                     type: boolean
                     example: true
                   tasks:
                     type: boolean
                     example: true
-              data:
-                type: array
+              criteria:
+                type: string
                 version: 2
-                items:
-                  type: object
-                example: '[{"Email":"jason@zylker.com","Phone_Number":"+16103948336"},{"Email":"p.boyle@zylker.com","Phone_Number":"+12096173907"}]'
+                example: (Single_Line.contains("Single Line of Text"))
     update_records_request:
       content:
         application/json:
@@ -597,26 +590,6 @@ components:
                 type: string
                 version: 2
                 example: (Single_Line.contains("Single Line of Text"))
-    delete_records_request:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              result:
-                type: object
-                version: 2
-                properties:
-                  message:
-                    type: boolean
-                    example: true
-                  tasks:
-                    type: boolean
-                    example: true
-              criteria:
-                type: string
-                version: 2
-                example: (Single_Line.contains("Single Line of Text"))
     delete_record_by_id_request:
       content:
         application/json:
@@ -633,6 +606,33 @@ components:
                   tasks:
                     type: boolean
                     example: true
+    add_records_request:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              result:
+                type: object
+                version: 2
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      type: string
+                    example: '["Phone_Number","Email"]'
+                  message:
+                    type: boolean
+                    example: true
+                  tasks:
+                    type: boolean
+                    example: true
+              data:
+                type: array
+                version: 2
+                items:
+                  type: object
+                example: '[{"Email":"jason@zylker.com","Phone_Number":"+16103948336"},{"Email":"p.boyle@zylker.com","Phone_Number":"+12096173907"}]'
   securitySchemes:
     oauth2:
       flows:
